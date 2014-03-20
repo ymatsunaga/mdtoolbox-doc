@@ -3,16 +3,24 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to mdtoolbox's documentation!
+MDToolbox
 =====================================
 
-Contents:
+Introduction
+------------------
 
 .. toctree::
    :maxdepth: 2
-
+   
    introduction
    matlab
+
+Tutorials
+------------------
+
+.. toctree::
+   :maxdepth: 2
+   
    pmf
    anm
 
