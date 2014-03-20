@@ -7,7 +7,7 @@ MDToolbox
 =====================================
 
 Introduction
-------------------
+------------
 
 .. toctree::
    :maxdepth: 2
@@ -15,8 +15,8 @@ Introduction
    introduction
    matlab
 
-Tutorials
-------------------
+Examples
+--------
 
 .. toctree::
    :maxdepth: 2
