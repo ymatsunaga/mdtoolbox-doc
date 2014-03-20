@@ -1,7 +1,7 @@
-.. usage
+.. getting_started
 .. highlight:: matlab
 
-Usage
+Getting Started
 ==================================
 
 MATLAB Basics

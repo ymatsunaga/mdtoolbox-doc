@@ -6,14 +6,14 @@
 MDToolbox
 =====================================
 
-Getting Started
----------------
+Introduction
+------------
 
 .. toctree::
    :maxdepth: 2
    
    introduction
-   usage
+   getting_started
 
 Examples
 --------
