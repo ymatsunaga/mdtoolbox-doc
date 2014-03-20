@@ -1,10 +1,10 @@
 .. introduction
 .. highlight:: matlab
 
-Getting started
+Introduction
 ==================================
 
-What is MD Toolbox?
+What is MDToolbox?
 ----------------------------------
 
 MD Toolbox is a MATLAB toolbox for analysis of molecular dynamics
@@ -16,19 +16,27 @@ functions which cover the following types of scientific computations:
 * Anisotropic network model (Elastic network model)
 * Calculation of PMF surface from scattered data
 * Principal component analysis
-* Hydrogen bond analysis
 * WHAM, and MBAR methods
-* Other auxiliary functions... such as atom selections
+* Utility functions, such as atom selections
 
-Installing
+Download and Installation
 ----------------------------------
 
 Download the `zip arichive <https://github.com/ymatsunaga/mdtoolbox/zipball/master>`_ or 
-`tarball <https://github.com/ymatsunaga/mdtoolbox/tarball/master>`_ of the latest codes, 
-or just clone this repository by invokning the following command,
+`tarball <https://github.com/ymatsunaga/mdtoolbox/tarball/master>`_
+from the `GitHub site <https://github.com/ymatsunaga/mdtoolbox/>`_, or
+just clone this repository by using the following command, 
 ::
 
  $ git clone https://github.com/ymatsunaga/mdtoolbox.git
+
+For personal installation, the personal startup file may be found at 
+``~/matlab/startup.m``.  If one does not exist, please create one.  
+Add the following line to ``startup.m`` with full path to MDToolbox
+m-files, 
+::
+ 
+ addpath('/path/to/mdtoolbox/mdtoolbox/')
 
 For system-wide installation, invoke ``pathtool`` commmand in MATLAB
 and add ``mdtoolbox/mdtoolbox/`` to your MATLAB search path (root
@@ -39,22 +47,13 @@ privilege required to save the path),
    :alt: introduction01
    :align: center
 
-For personal installation, the personal startup file may be found at 
-``~/matlab/startup.m``.  If one does not exist, create one.  
-Add the following line to startup.m with full path to mdtoolbox m-files
-::
- 
- addpath('/path/to/mdtoolbox/mdtoolbox/')
-
-Usage
+List of functions
 ----------------------------------
 
-TODO
+Representative functions of MDToolbox are summarized in the tables
+below. 
 
-Summary of functions
-----------------------------------
-
-I/O
+Inuput/Output
 
 ========================== ==================================================================================================
 name                       description
@@ -134,7 +133,7 @@ clusteringbymarkov         clustering by Markov chains
 calctransitionmatrix       calculate transition probability matrix
 ========================== ==================================================================================================
 
-Auxiliary functions (atom selections, index operations, etc)
+Utility functions (atom selections, index operations, etc)
 
 ========================== ==================================================================================================
 name                       description

@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Getting started &mdash; mdtoolbox 1.0a1 documentation</title>
+    <title>Introduction &mdash; mdtoolbox 1.0a1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -27,8 +27,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="mdtoolbox 1.0a1 documentation" href="index.html" />
-    <link rel="next" title="グラフの保存と画像への出力(exportasなど)" href="matlab.html" />
-    <link rel="prev" title="Welcome to mdtoolbox’s documentation!" href="index.html" /> 
+    <link rel="next" title="Usage" href="usage.html" />
+    <link rel="prev" title="MDToolbox" href="index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -38,10 +38,10 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="matlab.html" title="グラフの保存と画像への出力(exportasなど)"
+          <a href="usage.html" title="Usage"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to mdtoolbox’s documentation!"
+          <a href="index.html" title="MDToolbox"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">mdtoolbox 1.0a1 documentation</a> &raquo;</li> 
       </ul>
@@ -52,10 +52,10 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="getting-started">
-<h1>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="what-is-md-toolbox">
-<h2>What is MD Toolbox?<a class="headerlink" href="#what-is-md-toolbox" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-mdtoolbox">
+<h2>What is MDToolbox?<a class="headerlink" href="#what-is-mdtoolbox" title="Permalink to this headline">¶</a></h2>
 <p>MD Toolbox is a MATLAB toolbox for analysis of molecular dynamics
 trajectories of biomolecules. It consists of a collection of MATLAB
 functions which cover the following types of scientific computations:</p>
@@ -65,37 +65,36 @@ functions which cover the following types of scientific computations:</p>
 <li>Anisotropic network model (Elastic network model)</li>
 <li>Calculation of PMF surface from scattered data</li>
 <li>Principal component analysis</li>
-<li>Hydrogen bond analysis</li>
 <li>WHAM, and MBAR methods</li>
-<li>Other auxiliary functions... such as atom selections</li>
+<li>Utility functions, such as atom selections</li>
 </ul>
 </div>
-<div class="section" id="installing">
-<h2>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="download-and-installation">
+<h2>Download and Installation<a class="headerlink" href="#download-and-installation" title="Permalink to this headline">¶</a></h2>
 <p>Download the <a class="reference external" href="https://github.com/ymatsunaga/mdtoolbox/zipball/master">zip arichive</a> or
-<a class="reference external" href="https://github.com/ymatsunaga/mdtoolbox/tarball/master">tarball</a> of the latest codes,
-or just clone this repository by invokning the following command,</p>
+<a class="reference external" href="https://github.com/ymatsunaga/mdtoolbox/tarball/master">tarball</a>
+from the <a class="reference external" href="https://github.com/ymatsunaga/mdtoolbox/">GitHub site</a>, or
+just clone this repository by using the following command,</p>
 <div class="highlight-matlab"><div class="highlight"><pre>$ <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">ymatsunaga</span><span class="o">/</span><span class="n">mdtoolbox</span><span class="p">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>For personal installation, the personal startup file may be found at
+<tt class="docutils literal"><span class="pre">~/matlab/startup.m</span></tt>.  If one does not exist, please create one.
+Add the following line to <tt class="docutils literal"><span class="pre">startup.m</span></tt> with full path to MDToolbox
+m-files,</p>
+<div class="highlight-matlab"><div class="highlight"><pre><span class="n">addpath</span><span class="p">(</span><span class="s">&#39;/path/to/mdtoolbox/mdtoolbox/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>For system-wide installation, invoke <tt class="docutils literal"><span class="pre">pathtool</span></tt> commmand in MATLAB
 and add <tt class="docutils literal"><span class="pre">mdtoolbox/mdtoolbox/</span></tt> to your MATLAB search path (root
 privilege required to save the path),</p>
 <img alt="introduction01" class="align-center" src="_images/introduction01.png" style="width: 50%;" />
-<p>For personal installation, the personal startup file may be found at
-<tt class="docutils literal"><span class="pre">~/matlab/startup.m</span></tt>.  If one does not exist, create one.
-Add the following line to startup.m with full path to mdtoolbox m-files</p>
-<div class="highlight-matlab"><div class="highlight"><pre><span class="n">addpath</span><span class="p">(</span><span class="s">&#39;/path/to/mdtoolbox/mdtoolbox/&#39;</span><span class="p">)</span>
-</pre></div>
 </div>
-</div>
-<div class="section" id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>TODO</p>
-</div>
-<div class="section" id="summary-of-functions">
-<h2>Summary of functions<a class="headerlink" href="#summary-of-functions" title="Permalink to this headline">¶</a></h2>
-<p>I/O</p>
+<div class="section" id="list-of-functions">
+<h2>List of functions<a class="headerlink" href="#list-of-functions" title="Permalink to this headline">¶</a></h2>
+<p>Representative functions of MDToolbox are summarized in the tables
+below.</p>
+<p>Inuput/Output</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="21%" />
@@ -307,7 +306,7 @@ Add the following line to startup.m with full path to mdtoolbox m-files</p>
 </tr>
 </tbody>
 </table>
-<p>Auxiliary functions (atom selections, index operations, etc)</p>
+<p>Utility functions (atom selections, index operations, etc)</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="21%" />
@@ -356,21 +355,20 @@ Add the following line to startup.m with full path to mdtoolbox m-files</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Getting started</a><ul>
-<li><a class="reference internal" href="#what-is-md-toolbox">What is MD Toolbox?</a></li>
-<li><a class="reference internal" href="#installing">Installing</a></li>
-<li><a class="reference internal" href="#usage">Usage</a></li>
-<li><a class="reference internal" href="#summary-of-functions">Summary of functions</a></li>
+<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#what-is-mdtoolbox">What is MDToolbox?</a></li>
+<li><a class="reference internal" href="#download-and-installation">Download and Installation</a></li>
+<li><a class="reference internal" href="#list-of-functions">List of functions</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
-                        title="previous chapter">Welcome to mdtoolbox&#8217;s documentation!</a></p>
+                        title="previous chapter">MDToolbox</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="matlab.html"
-                        title="next chapter">グラフの保存と画像への出力(exportasなど)</a></p>
+  <p class="topless"><a href="usage.html"
+                        title="next chapter">Usage</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/introduction.txt"
@@ -400,10 +398,10 @@ Add the following line to startup.m with full path to mdtoolbox m-files</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="matlab.html" title="グラフの保存と画像への出力(exportasなど)"
+          <a href="usage.html" title="Usage"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="Welcome to mdtoolbox’s documentation!"
+          <a href="index.html" title="MDToolbox"
              >previous</a> |</li>
         <li><a href="index.html">mdtoolbox 1.0a1 documentation</a> &raquo;</li> 
       </ul>
