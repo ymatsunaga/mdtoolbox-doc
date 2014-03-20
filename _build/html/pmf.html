@@ -1,0 +1,166 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Potential mean force (PMF) surface from scattered data &mdash; mdtoolbox 1.0a1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0a1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="mdtoolbox 1.0a1 documentation" href="index.html" />
+    <link rel="next" title="Anisotropic Network Model (example/anm/)" href="anm.html" />
+    <link rel="prev" title="グラフの保存と画像への出力(exportasなど)" href="matlab.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="anm.html" title="Anisotropic Network Model (example/anm/)"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="matlab.html" title="グラフの保存と画像への出力(exportasなど)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">mdtoolbox 1.0a1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="potential-mean-force-pmf-surface-from-scattered-data">
+<h1>Potential mean force (PMF) surface from scattered data<a class="headerlink" href="#potential-mean-force-pmf-surface-from-scattered-data" title="Permalink to this headline">¶</a></h1>
+<p>Here, we calculate the surface of potential of mean force (PMF) in a dihedral angle space.
+Molecular dynamics trajectory of alanine-dipeptide with TIP3P waters is used for the demonstration.</p>
+<p>First, we extract the dihedral angles from the trajectory:</p>
+<div class="highlight-matlab"><div class="highlight"><pre><span class="c">% prepare index for dihedral angles</span>
+<span class="n">index_phi</span> <span class="p">=</span> <span class="p">[</span><span class="mi">5</span> <span class="mi">7</span> <span class="mi">9</span> <span class="mi">15</span><span class="p">];</span>
+<span class="n">index_psi</span> <span class="p">=</span> <span class="p">[</span><span class="mi">7</span> <span class="mi">9</span> <span class="mi">15</span> <span class="mi">17</span><span class="p">];</span>
+<span class="n">index_phi3</span> <span class="p">=</span> <span class="n">to3</span><span class="p">(</span><span class="n">index_phi</span><span class="p">);</span>
+<span class="n">index_psi3</span> <span class="p">=</span> <span class="n">to3</span><span class="p">(</span><span class="n">index_psi</span><span class="p">);</span>
+
+<span class="c">% read trajectory</span>
+<span class="n">trj</span> <span class="p">=</span> <span class="n">readnetcdf</span><span class="p">(</span><span class="s">&#39;ala.nc&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">22</span><span class="p">);</span>
+
+<span class="c">% calculate dihedral</span>
+<span class="n">phi</span> <span class="p">=</span> <span class="n">calcdihedral</span><span class="p">(</span><span class="n">trj</span><span class="p">(:,</span> <span class="n">index_phi3</span><span class="p">));</span>
+<span class="nb">psi</span> <span class="p">=</span> <span class="n">calcdihedral</span><span class="p">(</span><span class="n">trj</span><span class="p">(:,</span> <span class="n">index_psi3</span><span class="p">));</span>
+
+<span class="c">% convert the unit from radian to dgree</span>
+<span class="n">phi</span> <span class="p">=</span> <span class="n">phi</span><span class="o">.*</span><span class="mf">180.</span><span class="o">/</span><span class="nb">pi</span><span class="p">;</span>
+<span class="nb">psi</span> <span class="p">=</span> <span class="nb">psi</span><span class="o">.*</span><span class="mf">180.</span><span class="o">/</span><span class="nb">pi</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Next, we estimate the probability density function (PDF)
+in the two-dimentional dihedral space from the scattered data (<tt class="docutils literal"><span class="pre">phi</span></tt> and <tt class="docutils literal"><span class="pre">psi</span></tt>).
+This can be done by using the (bivariate) kernel density
+estimation (<tt class="docutils literal"><span class="pre">kde2d.m</span></tt>), and the PMF is defined as minus log of the
+PDF in the unit of KBT:</p>
+<div class="highlight-matlab"><div class="highlight"><pre><span class="c">% scattered plot of the dihedral angles</span>
+<span class="n">scatter</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="nb">psi</span><span class="p">,</span> <span class="s">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">axis</span> <span class="n">xy</span><span class="p">;</span>
+<span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">180</span> <span class="mi">180</span> <span class="o">-</span><span class="mi">180</span> <span class="mi">180</span><span class="p">]);</span>
+<span class="n">formatplot</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;phi&#39;</span><span class="p">,</span> <span class="s">&#39;FontSize&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">&#39;FontName&#39;</span><span class="p">,</span> <span class="s">&#39;Helvetica&#39;</span><span class="p">);</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;psi&#39;</span><span class="p">,</span> <span class="s">&#39;FontSize&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">&#39;FontName&#39;</span><span class="p">,</span> <span class="s">&#39;Helvetica&#39;</span><span class="p">);</span>
+<span class="n">exportas</span><span class="p">(</span><span class="s">&#39;scatter&#39;</span><span class="p">);</span>
+
+<span class="c">% calculate PMF and visualize the surface</span>
+<span class="p">[</span><span class="n">z</span><span class="p">,</span> <span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">]</span> <span class="p">=</span> <span class="n">calcpmf2d</span><span class="p">([</span><span class="n">phi</span> <span class="nb">psi</span><span class="p">],</span> <span class="mi">500</span><span class="p">);</span> <span class="c">% calcpmf2d() calls kde2d()</span>
+<span class="n">s</span> <span class="p">=</span> <span class="n">getconstants</span><span class="p">();</span>                      <span class="c">% get Boltzmann constant in kcal/mol/K</span>
+<span class="n">T</span> <span class="p">=</span> <span class="mf">300.0</span><span class="p">;</span>                               <span class="c">% set temperature</span>
+<span class="n">z</span> <span class="p">=</span> <span class="n">s</span><span class="p">.</span><span class="n">KB</span><span class="o">*</span><span class="n">T</span><span class="o">*</span><span class="n">z</span><span class="p">;</span>                            <span class="c">% convert unit from KBT to kcal/mol</span>
+<span class="n">contour</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">yi</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mf">0.25</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="s">&#39;LineWidth&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">180</span> <span class="mi">180</span> <span class="o">-</span><span class="mi">180</span> <span class="mi">180</span><span class="p">]);</span> <span class="n">axis</span> <span class="n">xy</span><span class="p">;</span> <span class="n">colorbar</span>
+<span class="n">formatplot2</span><span class="p">;</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;phi&#39;</span><span class="p">,</span> <span class="s">&#39;FontSize&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">&#39;FontName&#39;</span><span class="p">,</span> <span class="s">&#39;Helvetica&#39;</span><span class="p">);</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;psi&#39;</span><span class="p">,</span> <span class="s">&#39;FontSize&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s">&#39;FontName&#39;</span><span class="p">,</span> <span class="s">&#39;Helvetica&#39;</span><span class="p">);</span>
+<span class="n">exportas</span><span class="p">(</span><span class="s">&#39;pmf2d&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="scatter" class="align-center" src="_images/scatter.png" style="width: 70%;" />
+<img alt="pmf" class="align-center" src="_images/pmf2d.png" style="width: 70%;" />
+<p>Note that the kernel density estimator introduces some biases which
+smooth out the &#8216;true&#8217; PDF surface. So, we should be careful
+especially when focusing on the barrier heights of PMF.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="matlab.html"
+                        title="previous chapter">グラフの保存と画像への出力(exportasなど)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="anm.html"
+                        title="next chapter">Anisotropic Network Model (<tt class="docutils literal"><span class="pre">example/anm/</span></tt>)</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/pmf.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="anm.html" title="Anisotropic Network Model (example/anm/)"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="matlab.html" title="グラフの保存と画像への出力(exportasなど)"
+             >previous</a> |</li>
+        <li><a href="index.html">mdtoolbox 1.0a1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Yasuhiro Matsunaga.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
