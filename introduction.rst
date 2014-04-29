@@ -55,14 +55,14 @@ accelerated. To use the MEX-files, you need compile the files. Please
 invoke ``make.m`` script in MATLAB,
 ::
   
-  cd /path/to/mdtoolbox/mdtoolbox/
-  make
+  >> cd /path/to/mdtoolbox/mdtoolbox/
+  >> make
 
 If your platform is Linux, OpenMP can be enabled for parallel
 execution (i.e., get more accelerated),
 ::
   
-  make('openmp')
+  >> make('openmp')
 
 Some warnings during the compilation can be safely ignored.
 
@@ -73,9 +73,9 @@ can be set in the shell command line,
 ::
   
   # for bash
-  export OMP_NUM_THREADS=8
+  $ export OMP_NUM_THREADS=8
   # for csh tcsh
-  setenv OMP_NUM_THREADS 8
+  $ setenv OMP_NUM_THREADS 8
 
 List of functions
 ----------------------------------
