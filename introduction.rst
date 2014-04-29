@@ -9,14 +9,14 @@ What is MDToolbox?
 
 MDToolbox is a MATLAB toolbox for analysis of molecular dynamics
 trajectories of biomolecules. It consists of a collection of MATLAB
-functions which cover the following types of scientific computations:
+functions covering the following types of scientific computations:
 
 * I/O for topology, coordinates, and trajectory files used for MD simulation
 * Least-squares fitting of structures
 * Anisotropic network model (Elastic network model)
 * Calculation of PMF surface from scattered data
 * Principal component analysis
-* WHAM, and MBAR methods
+* Statistical estimators. WHAM, and MBAR methods
 * Utility functions, such as atom selections
 
 Download and Installation
@@ -31,21 +31,40 @@ just clone this repository by using the following command,
  $ git clone https://github.com/ymatsunaga/mdtoolbox.git
 
 For personal installation, the personal startup file may be found at 
-``~/matlab/startup.m``.  If one does not exist, please create one.  
+``~/matlab/startup.m``.  If it does not exist, please create one.  
 Add the following line to ``startup.m`` with full path to MDToolbox
 m-files, 
 ::
  
  addpath('/path/to/mdtoolbox/mdtoolbox/')
 
-For system-wide installation, invoke ``pathtool`` commmand in MATLAB
+For system-wide installation, call ``pathtool`` commmand in MATLAB
 and add ``mdtoolbox/mdtoolbox/`` to your MATLAB search path (root
-privilege required to save the path),
+privilege required to save the configuration for the path),
 
 .. image:: ./images/introduction01.png
    :width: 50 %
    :alt: introduction01
    :align: center
+
+For some functions, in addition to the original MATLAB M-Files,
+MEX-File are prepaired in order to accelerate the calculation (Here,
+MEX-files means C-subroutines which can be called from the MATLAB
+comman line). We highly recommend to use these MEX-files to be got
+accelerated. To use the MEX-files, you need compile the files. Please
+involke ``make.m`` script in MALTAB:
+::
+  
+  cd /path/to/mdtoolbox/mdtoolbox/
+  make
+
+If your platform is Linux, OpenMP can be enabled for parallel
+execution:
+::
+  
+  make('openmp')
+
+Some warnings during the compilation can be safely ignored.
 
 List of functions
 ----------------------------------
