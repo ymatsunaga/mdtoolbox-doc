@@ -47,8 +47,8 @@ and add ``mdtoolbox/mdtoolbox/`` to your MATLAB search path
    :alt: introduction01
    :align: center
 
-For core functions, in addition to the original MATLAB M-Files,
-MEX-File are prepared in order to accelerate the calculation (here,
+For core functions, in addition to the original m-files,
+MEX-files are prepared in order to accelerate the calculation (here,
 MEX-files mean C-subroutines which can be called from the MATLAB 
 command line). We highly recommend to use these MEX-files to be got
 accelerated. To use the MEX-files, you need compile the files. Please
