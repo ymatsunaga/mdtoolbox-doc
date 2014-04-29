@@ -1,11 +1,14 @@
 .. pmf
 .. highlight:: matlab
 
-==============================================================
+===========================================================================
 Potential of mean force (PMF) from scattered data (``example/md_ala/pmf``)
-==============================================================
+===========================================================================
 
-Here, we calculate the surface of potential of mean force (PMF) in a 2-dimensional dihedral angle space. Molecular dynamics trajectory of alanine-dipeptide solvated in TIP3P waters is used for the demonstration. 
+Here, we calculate the surface of potential of mean force (PMF) in a
+2-dimensional dihedral angle space. Molecular dynamics trajectory of
+alanine-dipeptide solvated in TIP3P waters is used for the
+demonstration.  
 
 First, we extract the dihedral angles from the trajectory: 
 ::
@@ -21,13 +24,13 @@ First, we extract the dihedral angles from the trajectory:
   phi = calcdihedral(trj, index_phi);
   psi = calcdihedral(trj, index_psi);
   
-  %% convert the unit from radian to dgree
+  %% convert the unit from radian to degree
   phi = phi.*180./pi;
   psi = psi.*180./pi;
 
-Next, we estimate the probability density function (PDF)
-in the 2-dimentional dihedral space from the scattered data (``phi`` and ``psi``).
-This can be done by using the (bivariate) kernel density
+Next, we estimate the probability density function (PDF) in the
+2-dimentional dihedral space from the scattered data (``phi`` and
+``psi``). This can be done by using the (bivariate) kernel density
 estimation (``kde2d.m``), and the PMF is defined as minus log of the PDF: 
 ::
 
@@ -44,7 +47,7 @@ estimation (``kde2d.m``), and the PMF is defined as minus log of the PDF:
   s   = getconstants();  % get Boltzmann constant in kcal/mol/K
   T   = 300.0;           % set temperature
   pmf = s.KB*T*pmf;        % convert unit from KBT to kcal/mol
-  
+
   level_max = 6.0;
   pmf2 = pmf;
   pmf2(pmf2 > level_max) = NaN;
@@ -71,7 +74,11 @@ estimation (``kde2d.m``), and the PMF is defined as minus log of the PDF:
    :alt: pmf
    :align: center
 
-Note that the kernel density estimator introduces some biases which
-smooth out the 'true' PDF surface. So, we should be careful
-especially when focusing on the barrier heights of PMF. 
+Note that the kernel density estimator introduces some biases by 
+smooth out the 'true' PDF surface by a gaussian kernel. So, we
+should be careful especially when focusing on small dips on the
+surface. Also, please note that ther current implementation does not
+support any periodic boundary conditions. Thus, PMF values close to
+the boundary are biased for periodic variables, such as dihedral
+angles.  
 
