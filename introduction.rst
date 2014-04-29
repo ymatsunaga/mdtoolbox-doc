@@ -50,16 +50,16 @@ and add ``mdtoolbox/mdtoolbox/`` to your MATLAB search path
 For core functions, in addition to the original m-files,
 MEX-files are prepared in order to accelerate the calculation (here,
 MEX-files mean C-subroutines which can be called from the MATLAB 
-command line). We highly recommend to use these MEX-files to be got
-accelerated. To use the MEX-files, you need compile the files. Please
+command line). We highly recommend to use these MEX-files for
+acceleration. To use the MEX-files, you need compile the files. Please 
 invoke ``make.m`` script in MATLAB,
 ::
   
   >> cd /path/to/mdtoolbox/mdtoolbox/
   >> make
 
-In Linux platforms, OpenMP can be enabled for parallel
-execution (i.e., got more accelerated),
+On Linux platforms, OpenMP option can be enabled for parallel
+execution (i.e., to get more accelerated), 
 ::
   
   >> make('openmp')
