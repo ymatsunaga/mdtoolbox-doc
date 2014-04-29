@@ -38,7 +38,7 @@ m-files,
  
  addpath('/path/to/mdtoolbox/mdtoolbox/')
 
-For system-wide installation, call ``pathtool`` commmand in MATLAB
+For system-wide installation, call ``pathtool`` command in MATLAB
 and add ``mdtoolbox/mdtoolbox/`` to your MATLAB search path (root
 privilege required to save the configuration for the path),
 
@@ -48,23 +48,34 @@ privilege required to save the configuration for the path),
    :align: center
 
 For some functions, in addition to the original MATLAB M-Files,
-MEX-File are prepaired in order to accelerate the calculation (Here,
-MEX-files means C-subroutines which can be called from the MATLAB
-comman line). We highly recommend to use these MEX-files to be got
+MEX-File are prepared in order to accelerate the calculation (Here,
+MEX-files mean C-subroutines which can be called from the MATLAB 
+command line). We highly recommend to use these MEX-files to be got
 accelerated. To use the MEX-files, you need compile the files. Please
-involke ``make.m`` script in MALTAB:
+invoke ``make.m`` script in MATLAB:
 ::
   
   cd /path/to/mdtoolbox/mdtoolbox/
   make
 
 If your platform is Linux, OpenMP can be enabled for parallel
-execution:
+execution (i.e., get more accelerated):
 ::
   
   make('openmp')
 
 Some warnings during the compilation can be safely ignored.
+
+For the parallel execution, make sure to set your environment variable 
+(``OMP_NUM_THREADS``) before starting up MATLAB. For example, if you
+want to use 8 threads(=cores) in the calculation, the variable can be
+set in the shell command line:
+.. highlight:: bash
+  
+  # for bash
+  export OMP_NUM_THREADS=8
+  # for csh tcsh
+  setenv OMP_NUM_THREADS 8
 
 List of functions
 ----------------------------------
