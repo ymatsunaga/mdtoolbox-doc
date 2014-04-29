@@ -25,7 +25,7 @@ Download and Installation
 Download the `zip arichive <https://github.com/ymatsunaga/mdtoolbox/zipball/master>`_ or 
 `tarball <https://github.com/ymatsunaga/mdtoolbox/tarball/master>`_
 from the `GitHub site <https://github.com/ymatsunaga/mdtoolbox/>`_, or
-just clone this repository by using the following command, 
+just clone this repository by using a git command in the shell, 
 ::
 
  $ git clone https://github.com/ymatsunaga/mdtoolbox.git
@@ -52,24 +52,24 @@ MEX-File are prepared in order to accelerate the calculation (Here,
 MEX-files mean C-subroutines which can be called from the MATLAB 
 command line). We highly recommend to use these MEX-files to be got
 accelerated. To use the MEX-files, you need compile the files. Please
-invoke ``make.m`` script in MATLAB:
+invoke ``make.m`` script in MATLAB,
 ::
   
   cd /path/to/mdtoolbox/mdtoolbox/
   make
 
 If your platform is Linux, OpenMP can be enabled for parallel
-execution (i.e., get more accelerated):
+execution (i.e., get more accelerated),
 ::
   
   make('openmp')
 
 Some warnings during the compilation can be safely ignored.
 
-For the parallel execution, make sure to set your environment variable 
-(``OMP_NUM_THREADS``) before starting up MATLAB. For example, if you
-want to use 8 threads(=cores) in the calculation, the variable can be
-set in the shell command line:
+For the parallel execution, please make sure to set your environment
+variable (``OMP_NUM_THREADS``) before starting up MATLAB. For example,
+if you want to use 8 threads(=cores) in the calculation, the variable
+can be set in the shell command line,
 ::
   
   # for bash
