@@ -70,7 +70,7 @@ For the parallel execution, make sure to set your environment variable
 (``OMP_NUM_THREADS``) before starting up MATLAB. For example, if you
 want to use 8 threads(=cores) in the calculation, the variable can be
 set in the shell command line:
-.. highlight:: bash
+::
   
   # for bash
   export OMP_NUM_THREADS=8
