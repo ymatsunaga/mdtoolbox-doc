@@ -58,7 +58,7 @@ invoke ``make.m`` script in MATLAB,
   >> cd /path/to/mdtoolbox/mdtoolbox/
   >> make
 
-If your platform is Linux, OpenMP can be enabled for parallel
+In Linux platforms, OpenMP can be enabled for parallel
 execution (i.e., get more accelerated),
 ::
   
