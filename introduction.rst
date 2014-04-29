@@ -25,7 +25,7 @@ Download and Installation
 Download the `zip arichive <https://github.com/ymatsunaga/mdtoolbox/zipball/master>`_ or 
 `tarball <https://github.com/ymatsunaga/mdtoolbox/tarball/master>`_
 from the `GitHub site <https://github.com/ymatsunaga/mdtoolbox/>`_, or
-just clone this repository by using a git command in the shell, 
+just clone the repository by using a git command in the shell, 
 ::
 
  $ git clone https://github.com/ymatsunaga/mdtoolbox.git
