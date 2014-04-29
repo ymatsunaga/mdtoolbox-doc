@@ -22,5 +22,7 @@ Examples
    :maxdepth: 2
    
    pmf
+   wham
+   mbar
    anm
 
