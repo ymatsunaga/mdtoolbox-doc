@@ -13,7 +13,7 @@ functions covering the following types of scientific computations:
 
 * I/O for topology, coordinates, and trajectory files used for MD simulation
 * Least-squares fitting of structures
-* Anisotropic network model (Elastic network model)
+* Elastic network models (Gaussian and Anisotropic network models)
 * Calculation of PMF surface from scattered data
 * Principal component analysis
 * Statistical estimators. WHAM, and MBAR methods
