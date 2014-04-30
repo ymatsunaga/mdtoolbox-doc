@@ -7,9 +7,9 @@ Introduction
 What is MDToolbox?
 ----------------------------------
 
-MDToolbox is a MATLAB toolbox for analysis of molecular dynamics
-trajectories of biomolecules. It consists of a collection of MATLAB
-functions covering the following types of scientific computations:
+MDToolbox is a MATLAB toolbox for analysis of molecular dynamics (MD)
+simulation data of biomolecules. It consists of a collection of MATLAB 
+functions covering the following types of scientific computations: 
 
 * I/O for topology, coordinates, and trajectory files used for MD simulation
 * Least-squares fitting of structures

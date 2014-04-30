@@ -10,7 +10,7 @@ Here, we calculate the surface of potential of mean force (PMF) in a
 alanine-dipeptide solvated in TIP3P waters is used for the
 demonstration.  
 
-First, we extract the dihedral angles from the trajectory: 
+First, we extract dihedral angles from the trajectory: 
 ::
   
   %% read data
