@@ -58,13 +58,13 @@ invoke ``make.m`` script in MATLAB,
   >> cd /path/to/mdtoolbox/mdtoolbox/
   >> make
 
+Some warnings during the compilation can be safely ignored.
+
 On Linux platforms, OpenMP option can be enabled for parallel
 execution (i.e., to get more accelerated), 
 ::
   
   >> make('openmp')
-
-Some warnings during the compilation can be safely ignored.
 
 For the parallel execution, please make sure to set your environment
 variable (``OMP_NUM_THREADS``) before starting up MATLAB. For example,
