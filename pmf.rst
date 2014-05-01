@@ -74,9 +74,9 @@ estimation (``kde2d.m``), and the PMF is defined as minus log of the PDF:
    :alt: pmf
    :align: center
 
-Note that the kernel density estimator introduces some biases by 
-smooth out the 'true' PDF surface by a gaussian kernel. So, we
-should be careful especially when focusing on small dips on the
+Note that the kernel density estimator tends to broaden
+the "true" PDF surface by a convolution with a Gaussian kernel. 
+So, we should be careful especially when focusing on small dips on the
 surface. Also, please note that ther current implementation does not
 support any periodic boundary conditions. Thus, PMF values close to
 the boundary are biased for periodic variables, such as dihedral
