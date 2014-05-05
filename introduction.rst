@@ -39,26 +39,26 @@ m-files,
  addpath('/path/to/mdtoolbox/mdtoolbox/')
 
 For system-wide installation, call ``pathtool`` command in MATLAB
-and add ``mdtoolbox/mdtoolbox/`` to your MATLAB search path 
-(superuser privilege is required to save the path),
+and add ``/path/to/mdtoolbox/mdtoolbox/`` to the user's MATLAB search
+path (superuser privilege is required to save the path),
 
 .. image:: ./images/introduction01.png
    :width: 50 %
    :alt: introduction01
    :align: center
 
-For core functions, in addition to the original m-files,
-MEX-files are prepared in order to accelerate the calculation (here,
-MEX-files mean C-subroutines which can be called from the MATLAB 
-command line). We highly recommend to use these MEX-files for
-acceleration. To use the MEX-files, you need compile the files. Please 
-invoke ``make.m`` script in MATLAB,
+In addition to the original m-files, MEX-files are prepared in order
+to accelerate the calculation for core functions (here, MEX-file means
+a C-subroutines which can be called from the MATLAB command line). We
+highly recommend to use these MEX-files for acceleration. To use the
+MEX-files, the user needs to compile the files. For the compilation,
+call ``make.m`` script in MATLAB,  
 ::
   
   >> cd /path/to/mdtoolbox/mdtoolbox/
   >> make
 
-Some warnings during the compilation can be safely ignored.
+Warnings during the compilation can be safely ignored.
 
 On Linux platforms, OpenMP option can be enabled for parallel
 execution (for more acceleration), 
