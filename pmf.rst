@@ -43,7 +43,8 @@ estimation (``kde2d.m``), and the PMF is defined as minus log of the PDF:
   exportas('scatter');
   
   %% calculate PMF and visualize the surface
-  [pmf, xi, yi] = calcpmf2d([phi psi], 500); % calcpmf2d() calls kde2d()
+  nbin = 512; % the number of grids
+  [pmf, xi, yi] = calcpmf2d([phi psi], nbin); % calcpmf2d() calls kde2d()
   s   = getconstants();  % get Boltzmann constant in kcal/mol/K
   T   = 300.0;           % set temperature
   pmf = s.KB*T*pmf;        % convert unit from KBT to kcal/mol
