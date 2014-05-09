@@ -47,8 +47,8 @@ path (superuser privilege is required to save the path),
    :alt: introduction01
    :align: center
 
-In addition to the original m-files, MEX-files are prepared in order
-to accelerate the calculation for core functions (here, MEX-file means
+In addition to the original m-files, MEX-files are prepared  for core
+functions in order to accelerate the calculation (here, MEX-file means
 a C-subroutines which can be called from the MATLAB command line). We
 highly recommend to use these MEX-files for acceleration. To use the
 MEX-files, the user needs to compile the files. For the compilation,
