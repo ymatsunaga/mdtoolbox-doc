@@ -165,16 +165,15 @@ calctransitionmatrix       calculate transition probability matrix
 
 Utility functions (atom selections, index operations, etc)
 
-========================== ==================================================================================================
+========================== ======================================================================================================
 name                       description
-========================== ==================================================================================================
-selectid                   used for atom selection. Finds all the atoms or residues which matches given index
-selectname                 used for atom selection. Finds all the atoms or residues which matches given names
-selectrange                used for atom selection. Finds all the atoms within cutoff distance from given atoms
-to3                        convert 1...N atom-index to 1...3N xyz-index
+========================== ======================================================================================================
+selectid                   used for atom selection. Returns logical-index for the atoms which matches given index
+selectname                 used for atom selection. Returns logical-index for the atoms which matches given names
+selectrange                used for atom selection. Returns logical-index for the atoms within cutoff distance from given atoms
+to3                        convert 1...N atom index (or logical-index) to 1...3N xyz index (or logical-index)
 substruct                  create a subset structure from a structure of arrays of same size
 formatplot                 fomart the handle properties (fonts, lines, etc.) of the current figure
 exportas                   export fig, eps, png, tiff files of the current figure
-kde2d                      fast and accurate state-of-the-art bivariate kernel density estimator
-========================== ==================================================================================================
+========================== ======================================================================================================
 
