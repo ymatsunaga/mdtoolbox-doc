@@ -105,9 +105,6 @@ readnamdbin                read namd restart (namdbin) file
 readnamdout                read namd output file
 writedcd                   write xplor or charmm (namd) format dcd file
 writenamdbin               write namd restart (namdbin) file
-readfloattrj               read float trajectory file
-readgenesisbin             read genesis restart (genesisbin) file
-readgenesisout             read genesis output file
 readmarblecrd              read marble coordinate/restart file
 readmarbletrj              read marble ascii-format trajectory file
 writemarbletrj             write marble ascii-format trajectory file
@@ -123,9 +120,7 @@ calcbond                   calculate distance from the Cartesian coordinates of 
 calcangle                  calculate angle from the Cartesian coordinates of three atoms
 calcdihedral               calculate dihedral angle from the Cartesian coordinates of four atoms
 calcpairlist               make a pairlist by searching pairs within a cutoff distance
-calcpairlist_exhaustive    make a pairlist by searching pairs within a cutoff distance
 searchrange                finds all the atoms within cutoff distance from given atoms
-searchrange_exhaustive     finds all the atoms within cutoff distance from given atoms
 superimpose                least-squares fitting of structures by Kabsch's method
 meanstructure              calculate average structure by iterative superimposing
 decenter                   remove the center of mass from coordinates or velocities
