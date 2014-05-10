@@ -1,13 +1,13 @@
 .. pmf
 .. highlight:: matlab
 
-===========================================================================
-Potential of mean force (PMF) from scattered data (``example/md_ala/pmf``)
-===========================================================================
+============================================================================
+Potential of mean force (PMF) from scattered data (``example/md_alad/pmf``)
+============================================================================
 
 Here, we calculate the surface of potential of mean force (PMF) in a
 2-dimensional dihedral angle space. Molecular dynamics trajectory of
-alanine-dipeptide solvated in TIP3P waters is used for the
+alanine-dipeptide solvated in explicit water models is used for the
 demonstration.  
 
 First, we extract dihedral angles from the trajectory: 
@@ -30,7 +30,7 @@ First, we extract dihedral angles from the trajectory:
 
 Next, we estimate the probability density function (PDF) in the
 2-dimentional dihedral space from the scattered data (``phi`` and
-``psi``). This can be done by using the (bivariate) kernel density
+``psi``). This can be done by using the bivariate kernel density
 estimation (``kde2d.m``), and the PMF is defined as minus log of the PDF: 
 ::
 

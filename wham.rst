@@ -2,7 +2,7 @@
 .. highlight:: matlab
 
 ===========================================================================
-Weighted Histogram Analysis Method (WHAM) (``example/umbrella/wham``)
+Weighted Histogram Analysis Method (WHAM) (``example/umbrella_alat/wham``)
 ===========================================================================
 
 
