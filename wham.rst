@@ -7,6 +7,13 @@ Weighted Histogram Analysis Method (WHAM) (``example/umbrella/wham``)
 
 
 ::
+    
+  % this routine calculates the Potential of Mean Force (PMF) from
+  % umbrella sampling data by using WHAM
+  
+  %% setup constants
+  C = getconstants();
+  KBT = C.KB*300; % KB is the Boltzmann constant in kcal/(mol K)
   
   %% define umbrella window centers
   window_center = 0:3:180;
@@ -27,13 +34,11 @@ Weighted Histogram Analysis Method (WHAM) (``example/umbrella/wham``)
     fhandle{i} = @(x) k*(periodic(x, window_center(i))).^2;
   end
   
-  s = getconstants;
-  kbt = s.KB*300;
-  
-  %% calculate probability along the dihedral angle and calculate
-  %% the potential of mean force (PMF) along the dihedral angle
+  %% WHAM
+  % calculate probability (=density of states) along the dihedral angle, and then 
+  % evaluate the potential of mean force (PMF) along the dihedral angle
   [f, log_prob, center] = wham(dihedral, fhandle, 300, linspace(-1, 181, 82));
-  pmf = - kbt * log_prob;
+  pmf = - KBT * log_prob;
   pmf = pmf - pmf(1);
   
   %% plot the PMF
@@ -43,11 +48,11 @@ Weighted Histogram Analysis Method (WHAM) (``example/umbrella/wham``)
   xlabel('angle [degree]', 'fontsize', 20);
   ylabel('PMF [kcal/mol]', 'fontsize', 20);
   axis([-1 181 -8 12]);
-  exportas('script_pmf')
+  exportas('analyze')
   hold off
   
   %% save results
-  save -v7.3 script_pmf.mat;  
+  save -v7.3 analyze.mat;
 
 
 ::

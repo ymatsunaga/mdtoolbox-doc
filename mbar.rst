@@ -8,17 +8,19 @@ Multistate Bennett Acceptance Ratio (MBAR) (``example/umbrella/mbar``)
 
 ::
     
+  % this routine calculates the Potential of Mean Force (PMF) from
+  % umbrella sampling data by using MBAR
+  
+  %% setup constants
+  C = getconstants();
+  KBT = C.KB*300; % KB is the Boltzmann constant in kcal/(mol K)
+  BETA = 1./KBT;
+  
   %% define umbrella window centers
   window_center = 0:3:180;
   nwindow = numel(window_center);
   
-  %% setup constant
-  c = getconstants;
-  % KB is the Boltzmann constant
-  KBT = c.KB*300;
-  BETA = 1./KBT;
-  
-  %% read potential energy data
+  %% read potential energy data without restraint energy (eamber)
   for i = 1:nwindow
     filename = sprintf('../3_prod/run_%d.out', window_center(i));
     e = readamberout(filename);
@@ -39,6 +41,7 @@ Multistate Bennett Acceptance Ratio (MBAR) (``example/umbrella/mbar``)
   end
   
   %% MBAR
+  % calculate free energies of umbrella systems
   f_k = mbar(u_kn, fhandle_k, dihedral_kn);
   
   %% PMF
@@ -57,11 +60,11 @@ Multistate Bennett Acceptance Ratio (MBAR) (``example/umbrella/mbar``)
   xlabel('angle [degree]', 'fontsize', 20);
   ylabel('PMF [kcal/mol]', 'fontsize', 20);
   axis([-1 181 -8 12]);
-  exportas('script_pmf')
+  exportas('analyze')
   hold off
   
   %% save results
-  save -v7.3 script_pmf.mat;
+  save -v7.3 analyze.mat;
 
 
 ::
