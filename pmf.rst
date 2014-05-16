@@ -1,9 +1,9 @@
 .. pmf
 .. highlight:: matlab
 
-============================================================================
-Potential of mean force (PMF) from scattered data (``example/md_alad/pmf``)
-============================================================================
+=======================================================================================
+Potential of mean force (PMF) from scattered data (``example/md_alad/pmf/analyze.m``)
+=======================================================================================
 
 Here, we calculate the surface of potential of mean force (PMF) in a
 2-dimensional dihedral angle space. Molecular dynamics trajectory of

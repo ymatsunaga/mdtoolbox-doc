@@ -1,9 +1,9 @@
 .. wham
 .. highlight:: matlab
 
-===========================================================================
-Weighted Histogram Analysis Method (WHAM) (``example/umbrella_alat/wham``)
-===========================================================================
+======================================================================================
+Weighted Histogram Analysis Method (WHAM) (``example/umbrella_alat/wham/analyze.m``)
+======================================================================================
 
 
 ::
@@ -41,7 +41,7 @@ Weighted Histogram Analysis Method (WHAM) (``example/umbrella_alat/wham``)
   pmf = - KBT * log_prob;
   pmf = pmf - pmf(1);
   
-  %% plot the PMF
+  %% plot PMF
   hold off
   plot(center, pmf, 'k-');
   formatplot

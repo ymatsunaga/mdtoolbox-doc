@@ -1,9 +1,9 @@
 .. wham
 .. highlight:: matlab
 
-============================================================================
-Multistate Bennett Acceptance Ratio (MBAR) (``example/umbrella_alat/mbar``)
-============================================================================
+=======================================================================================
+Multistate Bennett Acceptance Ratio (MBAR) (``example/umbrella_alat/mbar/analyze.m``)
+=======================================================================================
 
 
 ::
@@ -53,7 +53,7 @@ Multistate Bennett Acceptance Ratio (MBAR) (``example/umbrella_alat/mbar``)
   pmf = KBT*pmf;
   pmf = pmf - pmf(1);
   
-  %% plot the PMF
+  %% plot PMF
   hold off
   plot(center, pmf, 'k-');
   formatplot
