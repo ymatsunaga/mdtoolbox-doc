@@ -15,7 +15,7 @@ functions covering the following types of scientific computations:
 * Least-squares fitting of structures
 * Elastic network models (Gaussian and Anisotropic network models)
 * Calculation of potential mean force (PMF) from scattered data
-* Principal component analysis
+* Dimensional reductions (Principal Component Analysis, and others)
 * Statistical estimators. WHAM, and MBAR methods
 * Utility functions, such as atom selections
 
