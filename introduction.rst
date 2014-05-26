@@ -150,7 +150,7 @@ calcpmf                    calculate 1D potential of mean force from the scatter
 calcpmf2d                  calculate 2D potential of mean force from the scattered 2D-data (using kernel density estimator)
 calchistpmf                calculate 1D potential of mean force from the scattered 1D-data (using histogram)
 calchistpmf2d              calculate 2D potential of mean force from the scattered 2D-data (using histogram)
-calcpca                    peform principal component analysis
+calcpca                    peform principal component analysis (PCA)
 calctica                   perform time-structure based Independent Component Analysis (tICA)
 clusteringbyinformation    clustering samples according to an information-based criterion
 clusteringbykcenter        clustering by K-center
