@@ -7,7 +7,7 @@ Weighted Histogram Analysis Method (WHAM) (``example/umbrella_alat/wham/analyze.
 
 
 ::
-    
+  
   % this routine calculates the Potential of Mean Force (PMF) from
   % umbrella sampling data by using WHAM
   
@@ -16,32 +16,32 @@ Weighted Histogram Analysis Method (WHAM) (``example/umbrella_alat/wham/analyze.
   KBT = C.KB*300; % KB is the Boltzmann constant in kcal/(mol K)
   
   %% define umbrella window centers
-  window_center = 0:3:180;
-  nwindow = numel(window_center);
+  umbrella_center = 0:3:180;
+  numbrella = numel(umbrella_center);
   
   %% read dihedral angle data
-  dihedral = {};
-  for i = 1:nwindow
-    filename = sprintf('../3_prod/run_%d.dat', window_center(i));
+  dihedral_k = {};
+  for i = 1:numbrella
+    filename = sprintf('../3_prod/run_%d.dat', umbrella_center(i));
     x = load(filename);
-    dihedral{i} = x(:, 2);
+    dihedral_k{i} = x(:, 2);
   end
   
   %% define a function handle of bias energy for each umbrella window
-  fhandle = {};
-  for i = 1:nwindow
+  fhandle_k = {};
+  for i = 1:numbrella
     k = 200 * (pi/180)^2; % conversion of the unit from kcal/mol/rad^2 to kcal/mol/deg^2
-    fhandle{i} = @(x) k*(periodic(x, window_center(i))).^2;
+    fhandle_k{i} = @(x) k*(periodic(x, umbrella_center(i))).^2;
   end
   
   %% WHAM
-  % calculate probability (=density of states) along the dihedral angle, and then 
-  % evaluate the potential of mean force (PMF) along the dihedral angle
-  [f, log_prob, center] = wham(dihedral, fhandle, 300, linspace(-1, 181, 82));
-  pmf = - KBT * log_prob;
+  % calculate probabilities in the dihedral angle space, 
+  % and then evaluate the potential of mean force (PMF)
+  [f_k, log_prob_m, center] = wham(dihedral_k, fhandle_k, 300, linspace(-1, 181, 82));
+  pmf = - KBT * log_prob_m;
   pmf = pmf - pmf(1);
   
-  %% plot PMF
+  %% plot the PMF
   hold off
   plot(center, pmf, 'k-');
   formatplot
@@ -53,7 +53,6 @@ Weighted Histogram Analysis Method (WHAM) (``example/umbrella_alat/wham/analyze.
   
   %% save results
   save -v7.3 analyze.mat;
-
 
 ::
   
