@@ -45,7 +45,7 @@ Multistate Bennett Acceptance Ratio (MBAR) (``example/umbrella_alat/mbar/analyze
   f_k = mbar(u_kl);
   
   %% PMF
-  edge = linspace(-1, 181, 101);
+  edge = linspace(-1, 181, 81);
   for i = 1:numbrella
     [bin_k{i}, center] = assign1dbins(dihedral_k{i}, edge);
   end
