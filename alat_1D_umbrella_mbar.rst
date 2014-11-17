@@ -1,10 +1,11 @@
-.. wham
+.. alat_1D_umbrella_mbar
 .. highlight:: matlab
 
 =======================================================================================
-Multistate Bennett Acceptance Ratio (MBAR) (``example/umbrella_alat/mbar/analyze.m``)
+1D Umbrella Sampling of Tri-Alanine and Multistate Bennett Acceptance Ratio (MBAR)
 =======================================================================================
 
+This example is located in ``example/umbrella_alat/mbar/``.
 
 ::
   

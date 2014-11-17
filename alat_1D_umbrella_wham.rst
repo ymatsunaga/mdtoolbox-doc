@@ -1,10 +1,11 @@
-.. wham
+.. alat_1D_umbrella_wham
 .. highlight:: matlab
 
 ======================================================================================
-Weighted Histogram Analysis Method (WHAM) (``example/umbrella_alat/wham/analyze.m``)
+1D Umbrella Sampling of Tri-Alanine and Weighted Histogram Analysis Method (WHAM)
 ======================================================================================
 
+This example is located in ``example/umbrella_alat/wham/``.
 
 ::
   

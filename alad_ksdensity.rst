@@ -1,11 +1,13 @@
-.. pmf
+.. alad_ksdensity
 .. highlight:: matlab
 
-=======================================================================================
-Potential of mean force (PMF) from scattered data (``example/md_alad/pmf/analyze.m``)
-=======================================================================================
+===========================================================================================
+Conventional MD of Alanine-Dipeptide: 2D Potential of mean force (PMF) from scattered data
+===========================================================================================
 
-Here, we calculate the surface of potential of mean force (PMF) in a
+This example is located in ``example/md_alad/pmf/``.
+
+We calculate the surface of potential of mean force (PMF) in a
 2-dimensional dihedral angle space. Molecular dynamics trajectory of
 alanine-dipeptide solvated in explicit water models is used for the
 demonstration.  

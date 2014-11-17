@@ -21,8 +21,9 @@ Examples
 .. toctree::
    :maxdepth: 2
    
-   pmf
-   wham
-   mbar
+   alat_1D_umbrella_wham
+   alat_1D_umbrella_mbar
+   alad_ksdensity
+   alad_2D_umbrella_mbar
    anm
 
