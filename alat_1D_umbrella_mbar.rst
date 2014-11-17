@@ -2,7 +2,7 @@
 .. highlight:: matlab
 
 =======================================================================================
-1D Umbrella Sampling of Tri-Alanine and Multistate Bennett Acceptance Ratio (MBAR)
+1D Umbrella Sampling of Tri-Alanine and MBAR
 =======================================================================================
 
 This example is located in ``example/umbrella_alat/mbar/``.

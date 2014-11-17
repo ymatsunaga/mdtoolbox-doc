@@ -2,7 +2,7 @@
 .. highlight:: matlab
 
 ===========================================================================================
-Conventional MD of Alanine-Dipeptide: 2D Potential of mean force (PMF) from scattered data
+Conventional MD of Alanine-Dipeptide and 2D PMF surface
 ===========================================================================================
 
 This example is located in ``example/md_alad/pmf/``.

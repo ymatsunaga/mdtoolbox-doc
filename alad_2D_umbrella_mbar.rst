@@ -2,7 +2,7 @@
 .. highlight:: matlab
 
 ===========================================================================================
-Conventional MD of Alanine-Dipeptide: 2D Potential of mean force (PMF) from scattered data
+2D Umbrella Sampling of Alanine-Dipeptide and MBAR
 ===========================================================================================
 
 This example is located in ``example/umbrella_alad/mbar/``.
