@@ -8,7 +8,7 @@ Anisotropic Network Model
 This example is located in ``example/anm/``.
 
 Normal mode analysis of ANM
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------
 Normal mode analysis of Ca-based anisotropic network model of T4 lysozyme (``script_anm.m``). 
 ::
   
@@ -90,7 +90,7 @@ Visualize mode structures (``viz_mode1.pml``).
    :align: center
 
 Transformation of frame
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
 Transform from the Eckart frame to a non-Eckart frame (``script_transformframe.m``).
 ::
