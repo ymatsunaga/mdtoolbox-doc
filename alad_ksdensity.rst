@@ -50,20 +50,10 @@ estimation (``kde2d.m``), and the PMF is defined as minus log of the PDF:
   s   = getconstants();  % get Boltzmann constant in kcal/mol/K
   T   = 300.0;           % set temperature
   pmf = s.KB*T*pmf;        % convert unit from KBT to kcal/mol
-
-  level_max = 6.0;
-  pmf2 = pmf;
-  pmf2(pmf2 > level_max) = NaN;
-  pcolor(xi, yi, pmf2);
-  shading flat;
-  colorbar;
-  axis([-180 180 -180 180]); axis xy;
-  formatplot2;
   
-  hold on
-  contour(xi, yi, pmf2, 0:0.25:level_max, 'linecolor', 'black');
-  hold off
-  
+  %% visualization
+  landscape(xi, yi, pmf, 0:0.25:6);
+  axis([-180 180 -180 180]);
   xlabel('phi [degree]', 'FontSize', 20, 'FontName', 'Helvetica');
   ylabel('psi [degree]', 'FontSize', 20, 'FontName', 'Helvetica');
   exportas('pmf');

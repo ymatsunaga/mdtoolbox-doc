@@ -57,8 +57,8 @@ PDB file
   % after some calculations
   writepdb('protein_edit.pdb', pdb);
 
-AMBER
-^^^^^
+AMBER files
+^^^^^^^^^^^
 
 AMBER trajectory file
 ::
@@ -85,6 +85,9 @@ AMBER NetCDF file
   writenetcdf('amber_edit.nc', trj)
   % or if box size is needed
   writenetcdf('amber_edit.nc', trj)
+
+CHARMM files
+^^^^^^^^^^^^
 
 Logical index
 ----------------------------------
