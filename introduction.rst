@@ -22,8 +22,9 @@ functions covering the following types of scientific computations:
 Download and Installation
 ----------------------------------
 
-Download the `zip arichive <https://github.com/ymatsunaga/mdtoolbox/zipball/master>`_ or 
-`tarball <https://github.com/ymatsunaga/mdtoolbox/tarball/master>`_
+Download the latest `zip arichive
+<https://github.com/ymatsunaga/mdtoolbox/zipball/master>`_ or `tarball
+<https://github.com/ymatsunaga/mdtoolbox/tarball/master>`_ 
 from the `GitHub site <https://github.com/ymatsunaga/mdtoolbox/>`_, or
 just clone the repository by using a git command in the shell, 
 ::
