@@ -2,8 +2,10 @@
 .. highlight:: matlab
 
 ==============================================================
-Anisotropic Network Model (``example/anm/``)
+Anisotropic Network Model
 ==============================================================
+
+This example is located in ``example/anm/``.
 
 Normal mode analysis of ANM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^

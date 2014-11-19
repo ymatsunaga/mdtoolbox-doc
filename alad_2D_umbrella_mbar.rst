@@ -1,4 +1,4 @@
-.. alad_ksdensity
+.. alad_2D_umbrella_mbar
 .. highlight:: matlab
 
 ===========================================================================================
@@ -81,9 +81,9 @@ This example is located in ``example/umbrella_alad/mbar/``.
   % from the result of MBAR
   
   %% read MBAR result
-  load calc_mbar.mat;
+  load calc_mbar.mat numbrella dihedral_k u_kl f_k KBT;
   
-  %% calculate PMF by counting weights in bins (histogram)
+  %% calculate PMF by counting weights of bins under restraint-free condition
   % assign bins
   nbin = 50;
   edge_phi = linspace(-180, 0, nbin+1);
@@ -95,9 +95,9 @@ This example is located in ``example/umbrella_alad/mbar/``.
   end
   
   % evaluate PMF of bins
-  [pmf, w_k] = mbarpmf(u_kl, bin_k, f_k);
+  pmf = mbarpmf(u_kl, bin_k, f_k);
   
-  % reshape
+  % reshape PMF data
   pmf2 = zeros(nbin*nbin, 1);
   pmf2(:) = NaN;
   pmf2(1:numel(pmf)) = pmf;
@@ -105,25 +105,27 @@ This example is located in ``example/umbrella_alad/mbar/``.
   pmf2 = pmf2 - min(pmf2(:));
   pmf = reshape(pmf2, nbin, nbin);
   
-  % visualize
-  figure(1)
-  level_max = 6.0;
-  pmf2 = pmf;
-  pmf2(pmf2 > level_max) = NaN;
-  pcolor(center_phi, center_psi, pmf2);
-  shading flat;
-  colorbar;
-  axis([min(center_phi) max(center_phi) min(center_psi) max(center_psi)]);
-  axis xy;
-  formatplot2;
-  
-  hold on
-  contour(center_phi, center_psi, pmf2, 0:0.25:level_max, 'linecolor', 'black');
-  hold off;
-  
+  %% visualization
+  landscape(center_phi, center_psi, pmf, 0:0.25:6);
   xlabel('phi [degree]', 'FontSize', 20, 'FontName', 'Helvetica');
   ylabel('psi [degree]', 'FontSize', 20, 'FontName', 'Helvetica');
   exportas('pmf_histogram');
+
+.. image:: ./images/pmf_histogram.png
+   :width: 70 %
+   :alt: scatter
+   :align: center
+
+::
+  
+  % this routine calculates 2-D potential of mean force (PMF)
+  % from the result of MBAR
+  
+  %% read MBAR result
+  load calc_mbar.mat numbrella dihedral_k u_kl f_k KBT;
+  
+  %% evaluate weights of data under restraint-free condition
+  [~, w_k] = mbarpmf(u_kl, [], f_k);
   
   %% calculate PMF by using kernel density estimation
   % collect scattered data with weights
@@ -142,33 +144,14 @@ This example is located in ``example/umbrella_alad/mbar/``.
   center_psi = 0:0.5:180;
   prob = ksdensity2d(data, center_phi, center_psi, weight, [2.5 2.5]); % time-consuming part
   pmf = -log(prob);
-  pmf = pmf - min(pmf(:));
-  pmf = KBT*pmf;     % convert unit from KBT to kcal/mol
+  pmf = KBT*pmf; % convert unit from KBT to kcal/mol
   
-  % visualize
-  figure(2)
-  level_max = 6.0;
-  pmf2 = pmf;
-  pmf2(pmf2 > level_max) = NaN;
-  pcolor(center_phi, center_psi, pmf2);
-  shading flat;
-  colorbar;
-  axis([min(center_phi) max(center_phi) min(center_psi) max(center_psi)]);
-  axis xy;
-  formatplot2;
-  
-  hold on;
-  contour(center_phi, center_psi, pmf2, 0:0.25:level_max, 'linecolor', 'black');
-  hold off;
-  
+  %% visualization
+  landscape(center_phi, center_psi, pmf, 0:0.25:6);
   xlabel('phi [degree]', 'FontSize', 20, 'FontName', 'Helvetica');
   ylabel('psi [degree]', 'FontSize', 20, 'FontName', 'Helvetica');
   exportas('pmf_ksdensity');
 
-.. image:: ./images/pmf_histogram.png
-   :width: 70 %
-   :alt: scatter
-   :align: center
 .. image:: ./images/pmf_ksdensity.png
    :width: 70 %
    :alt: pmf
