@@ -10,12 +10,12 @@ Data structures
 MDToolbox assumes specific data structures for coordinates and
 trajectories. 
 
-Coordinate variable is a row vector whose column has the XYZ
+Coordinate variable is a row vector whose columns are the XYZ 
 coordinates of atoms in order [x(1) y(1) z(1) x(2) y(2) z(2)
 \.\.\. x(natom) y(natom) z(natom)]. 
 
 Thus, for example, translation in the x-axis by 3.0 Angstrom is
-coded in MATLAB as follows:
+coded as follows:
 ::
   
   crd(1:3:end) = crd(1:3:end) + 3.0;
@@ -28,14 +28,15 @@ Likewise, translation in the y-axis by 1.5 Angstrom is
 Trajectory variable is an array whose 
 column structure is same as that of coordinate. 
 
-Translation in the x-axis is coded as follows:
+Translation in the x-axis throughout all coordinates in the trajectory
+is coded as follows: 
 ::
   
   trj(:, 1:3:end) = trj(:, 1:3:end) + 3.0;
 
 The rows of trajectory variable represent time-steps in
-simulation. Thus, average of coordinates in the trajectory is coded 
-simply by:
+simulation. Thus, for example, average of coordinates in the
+trajectory is coded simply by: 
 ::
   
   crd = mean(trj);
