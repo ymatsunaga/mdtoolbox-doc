@@ -33,8 +33,8 @@ This example is located in ``example/umbrella_alad/mbar/``.
   
   %% define function handles of bias energy for umbrella windows
   for i = 1:numbrella
-    k = 50 * (pi/180)^2; % conversion of the unit from kcal/mol/rad^2 to kcal/mol/deg^2
-    fhandle_k{i} = @(x) BETA* sum(k*(periodic(x, umbrella_center(i, :))).^2, 2);
+    K = 50 * (pi/180)^2; % conversion of the unit from kcal/mol/rad^2 to kcal/mol/deg^2
+    fhandle_k{i} = @(x) BETA*sum(K*(periodic(x, umbrella_center(i, :))).^2, 2);
   end
   
   %% read dihedral angle data
@@ -56,6 +56,12 @@ This example is located in ``example/umbrella_alad/mbar/``.
     end
   end
   
+  for k = 1:numbrella
+    for l = 1:numbrella
+      u_kl{k, l} = fhandle_k{l}(dihedral_k{k});
+    end
+  end
+  
   %% MBAR: calculate free energies of umbrella systems
   f_k = mbar(u_kl);
   
@@ -69,9 +75,12 @@ This example is located in ``example/umbrella_alad/mbar/``.
   %
   %
   
-  d = abs(x - center);
-  while d > 180
-    d = d - 360;
+  d = abs(bsxfun(@minus, x, center));
+  
+  index = d > 180;
+  while any(index)
+    d(index) = d(idnex) - 360;
+    index = d > 180;
   end
 
 
