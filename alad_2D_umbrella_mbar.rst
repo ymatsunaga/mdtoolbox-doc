@@ -98,9 +98,7 @@ This example is located in ``example/umbrella_alad/mbar/``.
   edge_phi = linspace(-180, 0, nbin+1);
   edge_psi = linspace(0, 180, nbin+1);
   for k = 1:numbrella
-    [bin_phi, center_phi] = assign1dbins(dihedral_k{k}(:, 1), edge_phi);
-    [bin_psi, center_psi] = assign1dbins(dihedral_k{k}(:, 2), edge_psi);
-    bin_k{k} = nbin*(bin_phi-1) + bin_psi;
+    [bin_k{k}, center_phi, center_psi] = assign2dbins(dihedral_k{k}, edge_phi, edge_psi);
   end
   
   % evaluate PMF of bins
