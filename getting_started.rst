@@ -12,7 +12,7 @@ trajectories.
 
 Coordiante variable is a row vector whose column has the XYZ
 cordinates of atoms in order [x(1) y(1) z(1) x(2) y(2) z(2)
-x(natom) y(natom) z(natom)]. 
+\.\.\. x(natom) y(natom) z(natom)]. 
 
 Thus, for example, the translation in the x-axis by 3.0 Angstrom is
 coded in MATLAB as follows:
@@ -31,7 +31,7 @@ column structure is same as that of coordinate.
 The translation in the x-axis is coded as follows:
 ::
   
-  trj(:, 1:3:end) = crd(:, 1:3:end) + 3.0;
+  trj(:, 1:3:end) = trj(:, 1:3:end) + 3.0;
 
 The rows of trajectory variable represent time-steps in
 simulation. Thus, averages of coordiate variables are coded as
