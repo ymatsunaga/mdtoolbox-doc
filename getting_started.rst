@@ -10,8 +10,8 @@ Data structures
 MDToolbox assumes specific data structures for coordinates and
 trajectories. 
 
-Coordiante variable is a row vector whose column has the XYZ
-cordinates of atoms in order [x(1) y(1) z(1) x(2) y(2) z(2)
+Coordinate variable is a row vector whose column has the XYZ
+coordinates of atoms in order [x(1) y(1) z(1) x(2) y(2) z(2)
 \.\.\. x(natom) y(natom) z(natom)]. 
 
 Thus, for example, the translation in the x-axis by 3.0 Angstrom is
@@ -34,7 +34,7 @@ The translation in the x-axis is coded as follows:
   trj(:, 1:3:end) = trj(:, 1:3:end) + 3.0;
 
 The rows of trajectory variable represent time-steps in
-simulation. Thus, averages of coordiate variables are coded as
+simulation. Thus, average of coordinates in the trajectory is coded as
 follows: 
 ::
   
@@ -48,29 +48,42 @@ PDB
 
 PDB file
 ::
-
+  
   pdb = readpdb('protein.pdb');
-  % if you want to extract the coordinates in PDB
+  % or if you want to extract the coordinates in PDB
   [pdb, crd] = readpdb('protein.pdb');
+  
+  % after some calculations
+  writepdb('protein_edit.pdb', pdb);
 
 AMBER
 ^^^^^
 
 AMBER trajectory file
 ::
-
+  
   % the numbe of atoms is required for reading AMBER trajetory  
   natom = 5192;
   trj = readambertrj(natom, 'amber.trj');
-  % if interested in box size
+  % or if the simulation was done under periodic boundary condition
   [trj, box] = readambertrjbox(natom, 'amber.trj');
+  
+  % after some calculations
+  writeambertrj('amber_edit.trj', trj)
+  % or if box size is needed
+  writeambertrj('amber_edit.trj', trj, box)
 
 AMBER NetCDF file
 ::
   
-  trj = readambertrj('amber.nc');
-  % if you are interested in box size
-  [trj, box] readambertrj('amber.nc');
+  trj = readnetcdf('amber.nc');
+  % or if box size is needed
+  [trj, box] = readnetcdf('amber.nc');
+  
+  % after some calculations
+  writenetcdf('amber_edit.nc', trj)
+  % or if box size is needed
+  writenetcdf('amber_edit.nc', trj)
 
 Logical index
 ----------------------------------
