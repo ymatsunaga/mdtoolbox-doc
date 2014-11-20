@@ -48,16 +48,6 @@ This example is located in ``example/umbrella_alad/mbar/``.
   % time-consuming part
   for k = 1:numbrella
     for l = 1:numbrella
-      nstep = size(dihedral_k{k}, 1);
-      u_kl{k, l} = zeros(nstep, 1);
-      for istep = 1:nstep
-        u_kl{k, l}(istep) = fhandle_k{l}(dihedral_k{k}(istep, :));
-      end
-    end
-  end
-  
-  for k = 1:numbrella
-    for l = 1:numbrella
       u_kl{k, l} = fhandle_k{l}(dihedral_k{k});
     end
   end
