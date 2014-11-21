@@ -69,7 +69,7 @@ This example is located in ``example/umbrella_alad/mbar/``.
   
   index = d > 180;
   while any(index)
-    d(index) = d(idnex) - 360;
+    d(index) = d(index) - 360;
     index = d > 180;
   end
 
