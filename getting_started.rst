@@ -35,7 +35,12 @@ the trajectory is coded as follows:
   
   trj(:, 1:3:end) = trj(:, 1:3:end) + 3.0;
 
-Average of coordinates in the trajectory is coded simply by, 
+The coordinates at the 10th step is extracted by
+::
+  
+  crd = trj(10, :);
+
+Average of coordinates in the trajectory is calculated by
 ::
   
   crd = mean(trj);
