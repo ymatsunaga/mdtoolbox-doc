@@ -62,7 +62,7 @@ call ``make.m`` script in MATLAB,
 Warnings during the compilation can be safely ignored.
 
 On Linux platforms, OpenMP option can be enabled for parallel
-execution (for more acceleration), 
+execution of the MEX routines (for more acceleration), 
 ::
   
   >> make('openmp')
