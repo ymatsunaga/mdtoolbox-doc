@@ -40,7 +40,7 @@ The coordinates at the 10th step is extracted by
   
   crd = trj(10, :);
 
-Average of coordinates in the trajectory is calculated by
+Average of coordinates over the trajectory is coded by
 ::
   
   crd = mean(trj);
