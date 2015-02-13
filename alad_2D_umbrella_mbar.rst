@@ -139,8 +139,7 @@ This example is located in ``example/umbrella_alad/mbar/``.
   % evaluate PMF by using a kernel density estimator
   center_phi = -180:0.5:0;
   center_psi = 0:0.5:180;
-  prob = ksdensity2d(data, center_phi, center_psi, weight, [2.5 2.5]); % time-consuming part
-  pmf = -log(prob);
+  pmf = calcpmf2d(data, center_phi, center_psi, [3.0 3.0], [360 360], weight);
   pmf = KBT*pmf; % convert unit from KBT to kcal/mol
   
   %% visualization
@@ -153,5 +152,4 @@ This example is located in ``example/umbrella_alad/mbar/``.
    :width: 70 %
    :alt: pmf
    :align: center
-
 
