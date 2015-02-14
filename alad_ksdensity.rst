@@ -30,10 +30,11 @@ First, we extract dihedral angles from the trajectory:
   phi = phi.*180./pi;
   psi = psi.*180./pi;
 
-Next, we estimate the probability density function (PDF) in the
-2-dimentional dihedral space from the scattered data (``phi`` and
-``psi``). This can be done by using the bivariate kernel density
-estimation (``kde2d.m``), and the PMF is defined as minus log of the PDF: 
+Next, the probability density function (PDF) in the
+2-dimentional dihedral space is estimated from the scattered data
+(``phi`` and ``psi``). This can be done by using the bivariate kernel
+density estimation (``ksdensity2d.m``) which is called in
+``calcpmf2d.m`` routine. 
 ::
 
   %% scattered plot of the dihedral angles
@@ -53,7 +54,7 @@ estimation (``kde2d.m``), and the PMF is defined as minus log of the PDF:
   pmf = s.KB*T*pmf;     % convert unit from KBT to kcal/mol
   
   %% visualization
-  landscape(xi, yi, pmf, 0:0.25:6);
+  landscape(xi, yi, pmf, 0:0.25:6); colorbar;
   axis([-180 180 -180 180]);
   xlabel('phi [degree]', 'FontSize', 20, 'FontName', 'Helvetica');
   ylabel('psi [degree]', 'FontSize', 20, 'FontName', 'Helvetica');
@@ -71,8 +72,6 @@ estimation (``kde2d.m``), and the PMF is defined as minus log of the PDF:
 Note that the kernel density estimator tends to broaden
 the "true" PDF surface by a convolution with a Gaussian kernel. 
 So, we should be careful especially when interested in small dips or
-barrier heights on the surface. Also, note that the current
-implementation does not support any periodic boundary
-conditions. Thus, PMF values around boundaries are biased for 
-periodic variables, such as dihedral angles.  
+barrier heights on the surface.
+
 

@@ -103,7 +103,7 @@ This example is located in ``example/umbrella_alad/mbar/``.
   pmf = reshape(pmf2, nbin, nbin);
   
   %% visualization
-  landscape(center_phi, center_psi, pmf, 0:0.25:6);
+  landscape(center_phi, center_psi, pmf, 0:0.25:6); colorbar;
   xlabel('phi [degree]', 'FontSize', 20, 'FontName', 'Helvetica');
   ylabel('psi [degree]', 'FontSize', 20, 'FontName', 'Helvetica');
   exportas('pmf_histogram');
@@ -143,7 +143,7 @@ This example is located in ``example/umbrella_alad/mbar/``.
   pmf = KBT*pmf; % convert unit from KBT to kcal/mol
   
   %% visualization
-  landscape(center_phi, center_psi, pmf, 0:0.25:6);
+  landscape(center_phi, center_psi, pmf, 0:0.25:6); colorbar;
   xlabel('phi [degree]', 'FontSize', 20, 'FontName', 'Helvetica');
   ylabel('psi [degree]', 'FontSize', 20, 'FontName', 'Helvetica');
   exportas('pmf_ksdensity');
