@@ -120,11 +120,10 @@ Visualize mode structures by using the Normal mode wizard in VMD.
 ::
   
   $ vmd
-  vmd > nmwiz load anm.nmd
+  vmd > nmwiz load anm_ne.nmd
 
 .. image:: ./images/anm_ne.png
    :width: 50 %
    :alt: mode2
    :align: center
-
 
