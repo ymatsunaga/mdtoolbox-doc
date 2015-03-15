@@ -47,12 +47,12 @@ Normal mode analysis of Ca-based anisotropic network model of T4 lysozyme (``scr
   save script_anm.mat;
 
 .. image:: ./images/rmsf.png
-   :width: 50 %
+   :width: 90 %
    :alt: rmsf
    :align: center
 
 .. image:: ./images/covar_atom.png
-   :width: 50 %
+   :width: 90 %
    :alt: covariance
    :align: center
 
@@ -63,7 +63,7 @@ Visualize mode structures by using the Normal mode wizard in VMD.
   vmd > nmwiz load anm.nmd
 
 .. image:: ./images/anm.png
-   :width: 50 %
+   :width: 90 %
    :alt: mode1
    :align: center
 
@@ -107,12 +107,12 @@ Transform from the Eckart frame to a non-Eckart frame (``script_transformframe.m
   save script_transformframe.mat;
 
 .. image:: ./images/rmsf_ne.png
-   :width: 50 %
+   :width: 90 %
    :alt: rmsf2
    :align: center
 
 .. image:: ./images/covar_atom_ne.png
-   :width: 50 %
+   :width: 90 %
    :alt: covariance2
    :align: center
 
@@ -123,7 +123,7 @@ Visualize mode structures by using the Normal mode wizard in VMD.
   vmd > nmwiz load anm_ne.nmd
 
 .. image:: ./images/anm_ne.png
-   :width: 50 %
+   :width: 90 %
    :alt: mode2
    :align: center
 

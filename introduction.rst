@@ -45,7 +45,7 @@ and add ``/path/to/mdtoolbox/mdtoolbox/`` to the user's MATLAB search
 path (superuser privilege is required to save the path),
 
 .. image:: ./images/introduction01.png
-   :width: 50 %
+   :width: 90 %
    :alt: introduction01
    :align: center
 

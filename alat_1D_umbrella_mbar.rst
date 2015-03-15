@@ -80,7 +80,7 @@ This example is located in ``example/umbrella_alat/mbar/``.
 
 
 .. image:: ./images/mbar_pmf.png
-   :width: 70 %
+   :width: 90 %
    :alt: mbar_pmf
    :align: center
 

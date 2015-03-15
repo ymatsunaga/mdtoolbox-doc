@@ -20,7 +20,7 @@ sin関数を Cubic Spline 補間する例を示す。
  plot(x, y, 'o', xx, ppval(cs, xx), '-')
 
 .. image:: ./images/spline01.png
-   :width: 70 %
+   :width: 90 %
    :alt: spline1d_natural
    :align: center
 
@@ -43,7 +43,7 @@ MATLABでは、デフォルトで、端点の2階微分がゼロという条件�
  plot(x, y, 'o', xx, ppval(cs, xx), '-')
 
 .. image:: ./images/spline02.png
-   :width: 70 %
+   :width: 90 %
    :alt: spline1d_clamped
    :align: center
 
@@ -66,7 +66,7 @@ Multi-dimensional
  plot(y1, y2, 'o', yy(1,:), yy(2,:), '-'), axis equal
 
 .. image:: ./images/spline03.png
-   :width: 70 %
+   :width: 90 %
    :alt: spline2d
    :align: center
 

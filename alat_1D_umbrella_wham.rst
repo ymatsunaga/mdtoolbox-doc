@@ -68,7 +68,7 @@ This example is located in ``example/umbrella_alat/wham/``.
 
 
 .. image:: ./images/wham_pmf.png
-   :width: 70 %
+   :width: 90 %
    :alt: wham_pmf
    :align: center
 

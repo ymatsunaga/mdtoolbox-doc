@@ -109,7 +109,7 @@ This example is located in ``example/umbrella_alad/mbar/``.
   exportas('pmf_histogram');
 
 .. image:: ./images/pmf_histogram.png
-   :width: 70 %
+   :width: 90 %
    :alt: scatter
    :align: center
 
@@ -149,7 +149,7 @@ This example is located in ``example/umbrella_alad/mbar/``.
   exportas('pmf_ksdensity');
 
 .. image:: ./images/pmf_ksdensity.png
-   :width: 70 %
+   :width: 90 %
    :alt: pmf
    :align: center
 

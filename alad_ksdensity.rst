@@ -61,11 +61,11 @@ density estimation (``ksdensity2d.m``) which is called in
   exportas('pmf');
 
 .. image:: ./images/scatter.png
-   :width: 70 %
+   :width: 90 %
    :alt: scatter
    :align: center
 .. image:: ./images/pmf2d.png
-   :width: 70 %
+   :width: 90 %
    :alt: pmf
    :align: center
 
