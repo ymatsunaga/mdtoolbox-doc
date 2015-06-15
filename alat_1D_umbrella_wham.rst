@@ -57,15 +57,13 @@ This example is located in ``example/umbrella_alat/wham/``.
 
 ::
   
-  function d = periodic(x, center)
+  function dx = periodic(x, center)
   %
   %
   
-  d = abs(x - center);
-  while d > 180
-    d = d - 360;
-  end
-
+  dx = x - center;
+  dx = dx - round(dx./360)*360;
+  
 
 .. image:: ./images/wham_pmf.png
    :width: 90 %
