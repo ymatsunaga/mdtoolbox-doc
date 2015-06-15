@@ -61,18 +61,13 @@ This example is located in ``example/umbrella_alad/mbar/``.
 
 ::
   
-  function d = periodic(x, center)
+  function dx = periodic(x, center)
   %
   %
   
-  d = abs(bsxfun(@minus, x, center));
+  dx = bsxfun(@minus, x, center);
+  dx = dx - round(dx./360)*360;
   
-  index = d > 180;
-  while any(index)
-    d(index) = d(index) - 360;
-    index = d > 180;
-  end
-
 
 ::
   
