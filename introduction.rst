@@ -15,7 +15,7 @@ scientific computations:
 * I/O for trajectory, coordinates, and topology files used for MD simulation
 * Least-squares fitting of structures
 * Potential mean force (PMF) or free energy profile from scattered data
-* Statistical estimates (WHAM and MBAR methods) form biased data
+* Statistical estimates (WHAM and MBAR methods) from biased data
 * Dimensional reductions (Principal Component Analysis, and others)
 * Elastic network models (Gaussian and Anisotropic network models)
 * Utility functions, such as atom selections

@@ -4,13 +4,12 @@
 Getting Started
 ==================================
 
-Data structures
-----------------------------------
+Data structures for coordinate and trajectory
+---------------------------------------------
 
-MDToolbox assumes specific data structures for coordinates and
-trajectories. 
+MDToolbox assumes a simple vector/array structure for coordinate/trajectory.
 
-Coordinate variable is a row vector whose columns are the XYZ 
+Coordinate variable is a row vector whose columns are the XYZ (Cartesian) 
 coordinates of atoms in order 
 ``[x(1) y(1) z(1) x(2) y(2) z(2) ... x(natom) y(natom) z(natom)]``. 
 
@@ -26,8 +25,9 @@ Likewise, translation in the y-axis by 1.5 Angstrom is
   crd(2:3:end) = crd(2:3:end) + 1.5;
 
 Trajectory variable is an array whose 
-column structure is same as that of coordinate. 
-The rows represent time-steps in simulation. 
+column vector consists of coordinate variable.
+The rows represent snapshots of coordinates.
+The snapshots may correspond to time-steps for simulation data.
 
 For example, translation in the x-axis throughout all coordinates in
 the trajectory is coded as follows: 
@@ -45,8 +45,8 @@ Average of coordinates over the trajectory is coded by
   
   crd = mean(trj);
 
-Input/Output
-----------------------------------
+Input/Output for coordinate and trajectory
+------------------------------------------
 
 PDB
 ^^^
