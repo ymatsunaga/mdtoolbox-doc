@@ -190,9 +190,10 @@ AMBER trajectory file
 ::
   
   natom = 5192; % the number of atoms is required for reading AMBER trajectory  
-  trj = readambertrj(natom, 'run.trj');
+  trj = readmdcrd(natom, 'run.trj'); % trajectory file without box size
+  trj = readmdcrdbox(natom, 'run.trj'); % trajectory file with box size
   % after some calculations
-  writeambertrj('run_edit.trj', trj);
+  writemdcrd('run_edit.trj', trj);
 
 AMBER NetCDF trajectory file
 ::
@@ -209,10 +210,24 @@ DCD file
   
   trj = readdcd('run.dcd');
   % after some calculations
-  writenetcdf('run_edit.nc', trj);
+  writedcd('run_edit.dcd', trj);
 
 Input for topology files
 ---------------------------------------
 
-under construction
+AMBER file
+^^^^^^^^^^
+
+AMBER parameter/topology file
+::
+  
+  prmtop = readprmtop('run.prmtop');
+
+CHARMM/NAMD file
+^^^^^^^^^^^^^^^^
+
+PSF file
+::
+  
+  psf = readpsf('run.psf');
 
