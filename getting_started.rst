@@ -7,9 +7,9 @@ Getting Started
 Data structures for coordinate and trajectory
 ---------------------------------------------
 
-MDToolbox assumes a simple vector/array structure for coordinate/trajectory.
+MDToolbox assumes a simple vector/array form for coordinate/trajectory.
 
-Coordinate variable is a row vector whose columns are the XYZ (Cartesian) 
+Coordinate variable is a row vector whose elements are the XYZ (Cartesian) 
 coordinates of atoms in order 
 ``[x(1) y(1) z(1) x(2) y(2) z(2) ... x(natom) y(natom) z(natom)]``. 
 
@@ -19,10 +19,10 @@ coded as follows:
   
   crd(1:3:end) = crd(1:3:end) + 3.0;
 
-Likewise, translation in the y-axis by 1.5 Angstrom is
+Likewise, the y-coordinate of geometrical center is calculated by
 ::
   
-  crd(2:3:end) = crd(2:3:end) + 1.5;
+  center_y = mean(crd(2:3:end));
 
 Trajectory variable is an array whose 
 column vector consists of coordinate variable.
@@ -40,7 +40,7 @@ The coordinates at the 10th step is extracted by
   
   crd = trj(10, :);
 
-Average of coordinates over the trajectory is coded by
+Average coordinate over snapshots (without fitting) is coded by
 ::
   
   crd = mean(trj);
@@ -55,8 +55,7 @@ PDB file
 ::
   
   pdb = readpdb('protein.pdb');
-  % or if you want to extract the coordinates in PDB
-  [pdb, crd] = readpdb('protein.pdb');
+  [pdb, crd] = readpdb('protein.pdb'); % if you want to extract the coordinate
   
   % after some calculations
   writepdb('protein_edit.pdb', pdb);
@@ -67,36 +66,36 @@ AMBER files
 AMBER trajectory file
 ::
   
-  % the numbe of atoms is required for reading AMBER trajetory  
   natom = 5192;
-  trj = readambertrj(natom, 'amber.trj');
-  % or if the simulation was done under periodic boundary condition
-  [trj, box] = readambertrjbox(natom, 'amber.trj');
+  trj = readambertrj(natom, 'run.trj'); %the numbe of atoms is required for reading AMBER trajetory  
+  [trj, box] = readambertrjbox(natom, 'run.trj'); % if the simulation was under periodic boundary condition
   
   % after some calculations
-  writeambertrj('amber_edit.trj', trj)
-  % or if box size is needed
-  writeambertrj('amber_edit.trj', trj, box)
+  writeambertrj('run_edit.trj', trj);
+  writeambertrj('run_edit.trj', trj, box); % if box size is needed
 
-AMBER NetCDF file
+AMBER NetCDF trajectory file
 ::
   
-  trj = readnetcdf('amber.nc');
-  % or if box size is needed
-  [trj, box] = readnetcdf('amber.nc');
+  trj = readnetcdf('run.nc');
+  [trj, box] = readnetcdf('run.nc'); % if box size is needed
   
   % after some calculations
-  writenetcdf('amber_edit.nc', trj)
-  % or if box size is needed
-  writenetcdf('amber_edit.nc', trj)
+  writenetcdf('run_edit.nc', trj);
+  writenetcdf('run_edit.nc', trj, box); % if box size is needed
 
-CHARMM files
-^^^^^^^^^^^^
+CHARMM/NAMD files
+^^^^^^^^^^^^^^^^^
 
-Logical index
-----------------------------------
-
-Text here
+DCD file
+::
+  
+  trj = readdcd('run.dcd');
+  [trj, box] = readdcd('run.dcd'); % if box size is needed
+  
+  % after some calculations
+  writenetcdf('run_edit.nc', trj);
+  writenetcdf('run_edit.nc', trj, box); % if box size is needed
 
 Atom selections
 ----------------------------------

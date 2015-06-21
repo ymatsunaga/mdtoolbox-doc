@@ -52,8 +52,7 @@ path (root permission is required to save the path),
 In addition to the original m-files, MEX-files are prepared for core
 functions to accelerate the performance (here, MEX-file means
 a C-function called from the MATLAB command line). **We strongly
-recommend to use these MEX-files for reasonable performance** 
-(because MATLAB native routines are not fast enough).
+recommend to use these MEX-files for reasonable performance**. 
 To use MEX-files, the user needs to compile the files in advance.
 For the compilation, a prepared ``make.m`` script can be used as follows:
 ::
@@ -114,20 +113,20 @@ writemarbletrj             write marble ascii-format trajectory file
 writexplormap              write xplor density format file
 ========================== ==================================================================================================
 
-Geometric calculations (Distances between atoms, angles, dihedrals, fitting of structures, etc)
+Geometry calculations (Distance, angles, dihedrals, fitting of structures, etc)
 
 ========================== ==================================================================================================
 name                       description
 ========================== ==================================================================================================
-calcbond                   calculate distance from the Cartesian coordinates of two atoms
-calcangle                  calculate angle from the Cartesian coordinates of three atoms
-calcdihedral               calculate dihedral angle from the Cartesian coordinates of four atoms
-calcpairlist               make a pairlist by searching pairs within a cutoff distance
-searchrange                finds all the atoms within cutoff distance from given atoms
 superimpose                least-squares fitting of structures by Kabsch's method
 meanstructure              calculate average structure by iterative superimposing
 decenter                   remove the center of mass from coordinates or velocities
 orient                     orient molecule using the principal axes of inertia
+searchrange                finds all the atoms within cutoff distance from given atoms
+calcbond                   calculate distance from the Cartesian coordinates of two atoms
+calcangle                  calculate angle from the Cartesian coordinates of three atoms
+calcdihedral               calculate dihedral angle from the Cartesian coordinates of four atoms
+calcpairlist               make a pairlist by searching pairs within a cutoff distance
 ========================== ==================================================================================================
 
 Statistics (WHAM, MBAR, clustering, etc)
