@@ -212,6 +212,18 @@ DCD file
   % after some calculations
   writedcd('run_edit.dcd', trj);
 
+GROMACS files
+^^^^^^^^^^^^^
+
+GRO file
+::
+  
+  gro = readgro('run.gro');
+  % after some calculations
+  writegro('run_edit.gro', gro);
+
+Support for TRR and XTC files are on-going.
+
 Input for topology files
 ---------------------------------------
 
