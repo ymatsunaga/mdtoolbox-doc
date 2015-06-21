@@ -41,7 +41,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'mdtoolbox'
-copyright = u'2014, Yasuhiro Matsunaga'
+copyright = u'2014-2015, Yasuhiro Matsunaga'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -248,7 +248,7 @@ texinfo_documents = [
 epub_title = u'mdtoolbox'
 epub_author = u'Yasuhiro Matsunaga'
 epub_publisher = u'Yasuhiro Matsunaga'
-epub_copyright = u'2014, Yasuhiro Matsunaga'
+epub_copyright = u'2014-2015, Yasuhiro Matsunaga'
 
 # The language of the text. It defaults to the language option
 # or en if the language is not set.
