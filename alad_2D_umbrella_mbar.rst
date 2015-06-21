@@ -79,7 +79,7 @@ This example is located in ``example/umbrella_alad/mbar/``.
   
   %% calculate PMF by counting weights of bins under restraint-free condition
   % assign bins
-  nbin = 50;
+  nbin = 90;
   edge_phi = linspace(-180, 0, nbin+1);
   edge_psi = linspace(0, 180, nbin+1);
   for k = 1:numbrella
