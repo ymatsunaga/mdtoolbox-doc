@@ -12,10 +12,10 @@ dynamics (MD) simulation data of biomolecules. It consists of a
 collection of MATLAB functions covering the following types of
 scientific computations: 
 
-* I/O for topology, coordinates, and trajectory files used for MD simulation
+* I/O for trajectory, coordinates, and topology files used for MD simulation
 * Least-squares fitting of structures
-* Calculation of potential mean force (PMF) from scattered data
-* Statistical estimators (WHAM and MBAR methods)
+* Potential mean force (PMF) or free energy profile from scattered data
+* Statistical estimates (WHAM and MBAR methods) form biased data
 * Dimensional reductions (Principal Component Analysis, and others)
 * Elastic network models (Gaussian and Anisotropic network models)
 * Utility functions, such as atom selections
@@ -23,60 +23,60 @@ scientific computations:
 Download and Installation
 ----------------------------------
 
-Download the latest `zip arichive
+Avaiable from the latest `zip arichive
 <https://github.com/ymatsunaga/mdtoolbox/zipball/master>`_ or `tarball
 <https://github.com/ymatsunaga/mdtoolbox/tarball/master>`_ 
-from the `GitHub site <https://github.com/ymatsunaga/mdtoolbox/>`_, or
+on the `GitHub site <https://github.com/ymatsunaga/mdtoolbox/>`_, or
 just clone the repository by using a git command in the shell, 
 ::
 
  $ git clone https://github.com/ymatsunaga/mdtoolbox.git
 
 For personal installation, the personal startup file may be found at 
-``~/matlab/startup.m``.  If it does not exist, please create one.  
-Add the following line to ``startup.m`` with full path to MDToolbox
-m-files, 
+``~/matlab/startup.m``.  If it does not exist, create one.  
+Add the following line to ``startup.m`` with full path to the
+directory of MDToolbox m-files, 
 ::
  
  addpath('/path/to/mdtoolbox/mdtoolbox/')
 
 For system-wide installation, call ``pathtool`` command in MATLAB
-and add ``/path/to/mdtoolbox/mdtoolbox/`` to the user's MATLAB search
-path (superuser privilege is required to save the path),
+and add the directory to the user's MATLAB search
+path (root permission is required to save the path),
 
 .. image:: ./images/introduction01.png
    :width: 90 %
    :alt: introduction01
    :align: center
 
-In addition to the original m-files, MEX-files are prepared  for core
-functions in order to accelerate the calculation (here, MEX-file means
-a C-subroutines which can be called from the MATLAB command line). We
-highly recommend to use these MEX-files for acceleration. To use the
-MEX-files, the user needs to compile the files. For the compilation,
-call ``make.m`` script in MATLAB,  
+In addition to the original m-files, MEX-files are prepared for core
+functions to accelerate the performance (here, MEX-file means
+a C-function called from the MATLAB command line). We
+strongly recommend to use these MEX-files for faster performance.
+To use MEX-files, the user needs to compile the files in advance.
+For the compilation, a prepared ``make.m`` script can be used as follows:
 ::
   
-  >> cd /path/to/mdtoolbox/mdtoolbox/
+  >> cd /path/to/mdtoolbox/
   >> make
 
 Warnings during the compilation can be safely ignored.
 
 On Linux platforms, OpenMP option can be enabled for parallel
-execution of the MEX routines (for more acceleration), 
+execution of the MEX routines for faster performance, 
 ::
   
   >> make('openmp')
 
 For the parallel execution, please make sure to set your environment
 variable (``OMP_NUM_THREADS``) before starting up MATLAB. For example,
-if you want to use 8 threads(=CPU cores) in the calculation, the variable
-should be set from the shell prompt,
+if you want to use 8 threads(=CPU cores) parallelization, the variable
+should be set from the shell prompt as follows:
 ::
   
-  # bash
+  # for sh/bash/zsh
   $ export OMP_NUM_THREADS=8
-  # csh or tcsh
+  # for csh/tcsh
   $ setenv OMP_NUM_THREADS 8
 
 List of functions
@@ -129,17 +129,6 @@ decenter                   remove the center of mass from coordinates or velocit
 orient                     orient molecule using the principal axes of inertia
 ========================== ==================================================================================================
 
-Anisotropic Network Model
-
-========================== ==================================================================================================
-name                       description
-========================== ==================================================================================================
-anm                        calculate normal modes and anisotropic fluctuations by using Anisotropic Network Model.
-anmsparse                  calculate normal modes of ANM using sparse-matrix for reducing memory size
-anmsym                     calculate normal modes of ANM for molecule with circular symmetry using symmetric coordinates
-transformframe             transform the normal modes from the Eckart frame to a non-Eckart frame
-========================== ==================================================================================================
-
 Statistics (WHAM, MBAR, clustering, etc)
 
 ========================== ==================================================================================================
@@ -159,6 +148,17 @@ clusteringbykcenter        clustering by K-center
 clusteringbykmeans         clustering by K-means
 clusteringbymarkov         clustering by Markov chains
 calctransitionmatrix       calculate transition probability matrix
+========================== ==================================================================================================
+
+Anisotropic Network Model
+
+========================== ==================================================================================================
+name                       description
+========================== ==================================================================================================
+anm                        calculate normal modes and anisotropic fluctuations by using Anisotropic Network Model.
+anmsparse                  calculate normal modes of ANM using sparse-matrix for reducing memory size
+anmsym                     calculate normal modes of ANM for molecule with circular symmetry using symmetric coordinates
+transformframe             transform the normal modes from the Eckart frame to a non-Eckart frame
 ========================== ==================================================================================================
 
 Utility functions (atom selections, index operations, etc)
