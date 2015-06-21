@@ -222,7 +222,7 @@ GRO file
   % after some calculations
   writegro('run_edit.gro', gro);
 
-Support for TRR and XTC files are on-going.
+Support of TRR and XTC files is on-going.
 
 Input for topology files
 ---------------------------------------
