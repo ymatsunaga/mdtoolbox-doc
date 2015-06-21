@@ -20,6 +20,9 @@ scientific computations:
 * Elastic network models (Gaussian and Anisotropic network models)
 * Utility functions, such as atom selections
 
+MDToolbox is developed on `GitHub <https://github.com/ymatsunaga/mdtoolbox/>`_,
+and freely available under the BSD license. 
+
 Download and Installation
 ----------------------------------
 
