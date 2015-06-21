@@ -51,8 +51,9 @@ path (root permission is required to save the path),
 
 In addition to the original m-files, MEX-files are prepared for core
 functions to accelerate the performance (here, MEX-file means
-a C-function called from the MATLAB command line). We
-strongly recommend to use these MEX-files for faster performance.
+a C-function called from the MATLAB command line). **We strongly
+recommend to use these MEX-files for reasonable performance** 
+(because MATLAB native routines are not fast enough).
 To use MEX-files, the user needs to compile the files in advance.
 For the compilation, a prepared ``make.m`` script can be used as follows:
 ::
