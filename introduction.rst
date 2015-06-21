@@ -109,10 +109,10 @@ readnamdbin                read namd restart (namdbin) file
 readnamdout                read namd output file
 writedcd                   write xplor or charmm (namd) format dcd file
 writenamdbin               write namd restart (namdbin) file
-readmarblecrd              read marble coordinate/restart file
-readmarbletrj              read marble ascii-format trajectory file
-writemarbletrj             write marble ascii-format trajectory file
-writexplormap              write xplor density format file
+readgro                    read gromacs gro (Gromos87 format) file
+writegro                   write gromacs gro (Gromos87 format) file
+readdx                     read dx (opendx) format file
+writedx                    write dx (opendx) format file
 ========================== ==================================================================================================
 
 Geometry calculations (Distance, angles, dihedrals, fitting of structures, etc)
