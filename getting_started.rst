@@ -25,7 +25,7 @@ Likewise, the y-coordinate of geometrical center is calculated by
   center_y = mean(crd(2:3:end));
 
 Trajectory variable is a matrix whose column vectors consist of
-coordinate variables. The rows represent snapshots of coordinates. 
+coordinate variables. The rows represent snapshots of coordinate. 
 For simulation data, the snapshots may correspond to time-steps. 
 
 Thus, for example, translation in the x-axis throughout all snapshots is coded as follows: 
@@ -46,7 +46,7 @@ Average coordinate over all snapshots (without fitting) is obtained by
 Input/Output for coordinate and trajectory
 ------------------------------------------
 
-Typical usages for I/O functions are summarized hre.
+Typical usages for I/O functions are summarized here.
 
 PDB
 ^^^
@@ -66,7 +66,7 @@ AMBER files
 AMBER trajectory file
 ::
   
-  natom = 5192; %the numbe of atoms is required for reading AMBER trajetory  
+  natom = 5192; % the number of atoms is required for reading AMBER trajectory  
   trj = readambertrj(natom, 'run.trj');
   % after some calculations
   writeambertrj('run_edit.trj', trj);
@@ -122,7 +122,7 @@ elements are greater than 1:
 
 Another advantage of logical indexing is that it is easy to
 combine the results of different conditions to select subset on
-multiple criteria. The following example select the subset whose
+multiple criteria. The following example selects the subset whose
 elements are greater than 1, and also smaller than 3:
 ::
   
@@ -144,8 +144,8 @@ elements are greater than 1, and also smaller than 3:
   
        2
 
-MDToolbox has three types of atom-selecting functions,
-``selectname()``, ``selectid()``, and ``selctrange()``. All of them
+MDToolbox has three types of atom-selection functions,
+``selectname()``, ``selectid()``, and ``selectrange()``. All of them
 returns logical indexing for use with other MDToolbox functions, such as
 file I/O, and geometry calculations.
 
@@ -165,7 +165,7 @@ atoms of the 1st and 2nd residue IDs.
   index_resid = selectid(pdb.resseq, 1:2);
 
 ``selectrange()`` returns a logical indexing of atoms within cutoff
-distance of given reference coordinates.
+distance of given reference coordinate.
 The following code returns logical indexing of 
 atoms within 8.0 Angstrom distance of the 1st and 2nd residue.
 ::
@@ -180,7 +180,7 @@ residues are selected by
   index = index_ca & index_resid;  % Boolean AND
 
 Obtained logical indexings can be used with other MDToolbox
-function, such as I/O funcitons. The following reads the trajectory of 
+function, such as I/O functions. The following reads the trajectory of 
 subset atoms specified by the logical index ``index``:
 ::
 
