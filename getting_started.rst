@@ -176,13 +176,38 @@ multiple conditions. For example, alpha-carbons of the 1st and 2nd
 residues are selected by
 ::
   
-  index = index_ca & index_resid;
+  index = index_ca & index_resid;  % Boolean AND
 
 Obtained logical indexings are directly used for other MDToolbox
 function, such as I/O funcitons:
 ::
 
   trj = readdcd('run.dcd', index);
+
+As an alternative, users can directly choose subset from coordinate or
+trajectory variable. This can be done by using a utility function of
+MDToolbox, ``to3()``. ``to3()`` convert given logical indexing to
+XYZ-type logical indexing. For example, the following code extracts
+the subset trajectory as same as above.
+::
+
+  trj_all = readdcd('run.dcd');
+  trj = trj_all(:, to3(index));
+
+The following explains how ``to3()`` works by using simple indexing:
+::
+  
+  >> index = [true false true]
+  
+  index =
+  
+       1     0     1
+  
+  >> to3(index)
+  
+  ans =
+  
+       1     1     1     0     0     0     1     1     1
 
 Figures
 ----------------------------------
