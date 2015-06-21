@@ -23,11 +23,11 @@ scientific computations:
 Download and Installation
 ----------------------------------
 
-Avaiable from the latest `zip arichive
+The latest version of `zip arichive
 <https://github.com/ymatsunaga/mdtoolbox/zipball/master>`_ or `tarball
 <https://github.com/ymatsunaga/mdtoolbox/tarball/master>`_ 
-on the `GitHub site <https://github.com/ymatsunaga/mdtoolbox/>`_, or
-just clone the repository by using a git command in the shell, 
+is available from the `GitHub <https://github.com/ymatsunaga/mdtoolbox/>`_,
+or you just clone the GitHub repository by using a git command in the shell,  
 ::
 
  $ git clone https://github.com/ymatsunaga/mdtoolbox.git
