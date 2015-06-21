@@ -211,7 +211,7 @@ DCD file
   % after some calculations
   writenetcdf('run_edit.nc', trj);
 
-Input/Output for topology files
+Input for topology files
 ---------------------------------------
 
 under construction
