@@ -166,10 +166,10 @@ The following explains how ``to3()`` works by using simple indexing:
   
        1     1     1     0     0     0     1     1     1
 
-Input/Output for trajectory files
+Input/Output usages
 ---------------------------------------
 
-Typical usages for I/O functions of trajectory files are summarized here.
+Typical usages of I/O functions for MD files are summarized here.
 
 PDB
 ^^^
@@ -177,7 +177,7 @@ PDB
 PDB file
 ::
   
-  pdb = readpdb('protein.pdb');
+  pdb = readpdb('protein.pdb'); % pdb is a structure variable containg ATOM records
   [pdb, crd] = readpdb('protein.pdb'); % if you want to extract the coordinate
   % after some calculations
   writepdb('protein_edit.pdb', pdb);
@@ -185,6 +185,16 @@ PDB file
 
 AMBER files
 ^^^^^^^^^^^
+
+AMBER log
+::
+  
+  ene = readamberout('amber.out'); % ene is a structure variable containing energy terms
+
+AMBER parameter/topology file
+::
+  
+  prmtop = readprmtop('run.prmtop'); % prmtop is a structure variable containing topology information
 
 AMBER trajectory file
 ::
@@ -205,6 +215,16 @@ AMBER NetCDF trajectory file
 CHARMM/NAMD files
 ^^^^^^^^^^^^^^^^^
 
+NAMD log
+::
+
+  ene = readnamdout('namd.out'); % ene is a structure variable containing energy terms
+
+PSF file
+::
+  
+  psf = readpsf('run.psf'); % psf is a structure variable containing energy terms
+
 DCD file
 ::
   
@@ -218,28 +238,9 @@ GROMACS files
 GRO file
 ::
   
-  gro = readgro('run.gro');
+  gro = readgro('run.gro'); % gro is a structure variable containg ATOM records
   % after some calculations
   writegro('run_edit.gro', gro);
 
 Support of TRR and XTC files is on-going.
-
-Input for topology files
----------------------------------------
-
-AMBER file
-^^^^^^^^^^
-
-AMBER parameter/topology file
-::
-  
-  prmtop = readprmtop('run.prmtop');
-
-CHARMM/NAMD file
-^^^^^^^^^^^^^^^^
-
-PSF file
-::
-  
-  psf = readpsf('run.psf');
 
