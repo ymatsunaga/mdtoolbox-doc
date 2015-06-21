@@ -11,9 +11,9 @@ MDToolbox assumes a simple vector/array form for coordinate/trajectory.
 
 Coordinate variable is a row vector whose elements are the XYZ (Cartesian) 
 coordinates of atoms in order
-:: highlight:: none
+::
   
-  [x(1) y(1) z(1) x(2) y(2) z(2) ... x(natom) y(natom) z(natom)]
+  [x(1) y(1) z(1) x(2) y(2) z(2) .. x(natom) y(natom) z(natom)]
 
 Thus, for example, translation in the x-axis by 3.0 Angstrom is
 coded as follows:
