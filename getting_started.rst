@@ -51,7 +51,7 @@ MDToolbox uses `logical indexing
 for atom selection. Logical indexing is a vector or matrix whose
 elements consists of logical variables, i.e., true(1) or false(0). It
 is useful for selecting subset of vector/matrix that matches a given
-condition since many MATLAB functions return logical indexing.
+condition in MATLAB.
 
 For example, the following example returns a logical indexing whose
 elements are greater than 1:
@@ -101,8 +101,8 @@ elements are greater than 1, and also smaller than 3:
 
 MDToolbox has three types of atom-selection functions,
 ``selectname()``, ``selectid()``, and ``selectrange()``. All of them
-returns logical indexing for use with other MDToolbox functions, such as
-file I/O, and geometry calculations.
+returns logical indexing for use with other MDToolbox functions 
+or selecting subset of coordinate or trajectory variable.
 
 ``selectname()`` returns a logical indexing which matches given
 names (characters). The following code returns logical indexing of 

@@ -26,11 +26,10 @@ and freely available under the BSD license.
 Download and Installation
 ----------------------------------
 
-The latest version of `zip arichive
-<https://github.com/ymatsunaga/mdtoolbox/zipball/master>`_ or `tarball
+`Zip arichive <https://github.com/ymatsunaga/mdtoolbox/zipball/master>`_ or `tarball
 <https://github.com/ymatsunaga/mdtoolbox/tarball/master>`_ 
-is available from the `GitHub <https://github.com/ymatsunaga/mdtoolbox/>`_,
-or you just clone the GitHub repository by using a git command in the shell,  
+of the latest version is available from `GitHub <https://github.com/ymatsunaga/mdtoolbox/>`_,
+or the repository can be directly cloned from GitHub by using git, 
 ::
 
  $ git clone https://github.com/ymatsunaga/mdtoolbox.git
@@ -65,13 +64,13 @@ For the compilation, a prepared ``make.m`` script can be used as follows:
 
 Warnings during the compilation can be safely ignored.
 
-On Linux platforms, OpenMP option can be enabled for parallel
-execution of the MEX routines for faster performance, 
+On Linux platforms, OpenMP option can be enabled further performance
+by parallel computation, 
 ::
   
   >> make('openmp')
 
-For the parallel execution, please make sure to set your environment
+For parallel run, make sure to set your environment
 variable (``OMP_NUM_THREADS``) before starting up MATLAB. For example,
 if you want to use 8 threads(=CPU cores) parallelization, the variable
 should be set from the shell prompt as follows:
@@ -95,14 +94,14 @@ name                       description
 ========================== ==================================================================================================
 readpdb                    read Protein Data Bank (PDB) file
 writepdb                   write Protein Data Bank (PDB) file
-readamberparm              read amber parameter/topology file
+readprmtop                 read amber parameter/topology file
 readambercrd               read amber coordinate/restart file
 readamberout               read amber output file
-readambertrj               read amber ascii-format trajectory file
-readambertrjbox            read amber ascii-format trajectory file including box size
+readmdcrd                  read amber ascii-format trajectory file
+readmdcrdbox               read amber ascii-format trajectory file including box size
 readnetcdf                 read amber netcdf file
 writeambercrd              write amber coordinate/restart file
-writeambertrj              write amber ascii-format trajectory format file
+writemdcrd                 write amber ascii-format trajectory format file
 writenetcdf                write amber netcdf file
 readpsf                    read charmm or xplor type Protein Structure File (PSF)
 readdcd                    read xplor or charmm (namd) format dcd file
@@ -142,14 +141,10 @@ ptwham                     Parallel tempering WHAM (PTWHAM)
 mbar                       multi-state Bennett Acceptrance Ratio Method (MBAR)
 calcpmf                    calculate 1D potential of mean force from the scattered 1D-data (using kernel density estimator)
 calcpmf2d                  calculate 2D potential of mean force from the scattered 2D-data (using kernel density estimator)
-calchistpmf                calculate 1D potential of mean force from the scattered 1D-data (using histogram)
-calchistpmf2d              calculate 2D potential of mean force from the scattered 2D-data (using histogram)
 calcpca                    peform principal component analysis (PCA)
 calctica                   perform time-structure based Independent Component Analysis (tICA)
-clusteringbyinformation    clustering samples according to an information-based criterion
 clusteringbykcenter        clustering by K-center
 clusteringbykmeans         clustering by K-means
-clusteringbymarkov         clustering by Markov chains
 calctransitionmatrix       calculate transition probability matrix
 ========================== ==================================================================================================
 
@@ -169,12 +164,13 @@ Utility functions (atom selections, index operations, etc)
 ========================== ======================================================================================================
 name                       description
 ========================== ======================================================================================================
-selectid                   used for atom selection. Returns logical-index for the atoms which matches given index
 selectname                 used for atom selection. Returns logical-index for the atoms which matches given names
+selectid                   used for atom selection. Returns logical-index for the atoms which matches given index
 selectrange                used for atom selection. Returns logical-index for the atoms within cutoff distance from given atoms
 to3                        convert 1...N atom index (or logical-index) to 1...3N xyz index (or logical-index)
-substruct                  create a subset structure from a structure of arrays of same size
 formatplot                 fomart the handle properties (fonts, lines, etc.) of the current figure
 exportas                   export fig, eps, png, tiff files of the current figure
+addstruct                  create a structure by making the union of arrays of two structure variables
+substruct                  create a subset structure from a structure of arrays
 ========================== ======================================================================================================
 
