@@ -4,56 +4,6 @@
 Getting Started
 =======================================
 
-Input/Output for trajectory files
----------------------------------------
-
-Typical usages for I/O functions of trajectory files are summarized here.
-
-PDB
-^^^
-
-PDB file
-::
-  
-  pdb = readpdb('protein.pdb');
-  [pdb, crd] = readpdb('protein.pdb'); % if you want to extract the coordinate
-  % after some calculations
-  writepdb('protein_edit.pdb', pdb);
-  writepdb('protein_edit.pdb', pdb, crd); % if you want to replace coordinate with crd
-
-AMBER files
-^^^^^^^^^^^
-
-AMBER trajectory file
-::
-  
-  natom = 5192; % the number of atoms is required for reading AMBER trajectory  
-  trj = readambertrj(natom, 'run.trj');
-  % after some calculations
-  writeambertrj('run_edit.trj', trj);
-
-AMBER NetCDF trajectory file
-::
-  
-  trj = readnetcdf('run.nc');
-  % after some calculations
-  writenetcdf('run_edit.nc', trj);
-
-CHARMM/NAMD files
-^^^^^^^^^^^^^^^^^
-
-DCD file
-::
-  
-  trj = readdcd('run.dcd');
-  % after some calculations
-  writenetcdf('run_edit.nc', trj);
-
-Input/Output for topology files
----------------------------------------
-
-under construction
-
 Coordinate and trajectory variables
 ---------------------------------------
 
@@ -74,7 +24,7 @@ Likewise, the y-coordinate of geometrical center is calculated by
   
   center_y = mean(crd(2:3:end));
 
-Trajectory variable is a matrix whose column vectors consist of
+Trajectory variable is a matrix whose row vectors consist of
 coordinate variables. The rows represent snapshots of coordinate. 
 For simulation data, the snapshots may correspond to time-steps. 
 
@@ -215,4 +165,54 @@ The following explains how ``to3()`` works by using simple indexing:
   ans =
   
        1     1     1     0     0     0     1     1     1
+
+Input/Output for trajectory files
+---------------------------------------
+
+Typical usages for I/O functions of trajectory files are summarized here.
+
+PDB
+^^^
+
+PDB file
+::
+  
+  pdb = readpdb('protein.pdb');
+  [pdb, crd] = readpdb('protein.pdb'); % if you want to extract the coordinate
+  % after some calculations
+  writepdb('protein_edit.pdb', pdb);
+  writepdb('protein_edit.pdb', pdb, crd); % if you want to replace coordinate with crd
+
+AMBER files
+^^^^^^^^^^^
+
+AMBER trajectory file
+::
+  
+  natom = 5192; % the number of atoms is required for reading AMBER trajectory  
+  trj = readambertrj(natom, 'run.trj');
+  % after some calculations
+  writeambertrj('run_edit.trj', trj);
+
+AMBER NetCDF trajectory file
+::
+  
+  trj = readnetcdf('run.nc');
+  % after some calculations
+  writenetcdf('run_edit.nc', trj);
+
+CHARMM/NAMD files
+^^^^^^^^^^^^^^^^^
+
+DCD file
+::
+  
+  trj = readdcd('run.dcd');
+  % after some calculations
+  writenetcdf('run_edit.nc', trj);
+
+Input/Output for topology files
+---------------------------------------
+
+under construction
 
