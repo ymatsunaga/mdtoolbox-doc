@@ -7,7 +7,7 @@ Getting Started
 Data structures for coordinate and trajectory
 ---------------------------------------------
 
-MDToolbox assumes a simple vector/array form for coordinate/trajectory.
+MDToolbox assumes a simple vector/matrix form for coordinate/trajectory.
 
 Coordinate variable is a row vector whose elements are the XYZ coordinates of atoms in order
 ::
@@ -24,7 +24,7 @@ Likewise, the y-coordinate of geometrical center is calculated by
   
   center_y = mean(crd(2:3:end));
 
-Trajectory variable is an array whose column vectors consist of
+Trajectory variable is a matrix whose column vectors consist of
 coordinate variables. The rows represent snapshots of coordinates. 
 For simulation data, the snapshots may correspond to time-steps. 
 
@@ -93,7 +93,7 @@ Atom selection
 
 MDToolbox uses `logical indexing
 <http://blogs.mathworks.com/loren/2013/02/20/logical-indexing-multiple-conditions/>`_
-for atom selection. Logical indexing is a vector or array whose
+for atom selection. Logical indexing is a vector or matrix whose
 elements consists of logical variables, i.e., true(1) or false(0). It
 is useful for selecting subset of vector/matrix that matches a given
 condition since many MATLAB functions return logical indexing.
@@ -120,7 +120,7 @@ elements are greater than 1:
   
        2     3
 
-Another advantage of logical indexing is that it is very easy to
+Another advantage of logical indexing is that it is easy to
 combine the results of different conditions to select subset on
 multiple criteria. The following example select the subset whose
 elements are greater than 1, and also smaller than 3:
@@ -144,14 +144,14 @@ elements are greater than 1, and also smaller than 3:
   
        2
 
-MDToolbox has three types of atom-selecting function,
+MDToolbox has three types of atom-selecting functions,
 ``selectname()``, ``selectid()``, and ``selctrange()``. All of them
 returns logical indexing for use with other MDToolbox functions, such as
 file I/O, and geometry calculations.
 
 ``selectname()`` returns a logical indexing which matches given
 names (characters). The following code returns logical indexing of 
-Alpha-carbon atoms,
+alpha-carbon atoms,
 ::
   
   [pdb, crd] = readpdb('example/anm_lys/lys.pdb'); %pdb is a structure variable containing PDB records
@@ -164,7 +164,8 @@ atoms of the 1st and 2nd residue IDs.
   
   index_resid = selectid(pdb.resseq, 1:2);
 
-``selectregion()`` returns a logical indexing which matches given distance
+``selectrange()`` returns a logical indexing of atoms within cutoff
+distance of given reference coordinates.
 The following code returns logical indexing of 
 atoms within 8.0 Angstrom distance of the 1st and 2nd residue.
 ::
@@ -178,15 +179,16 @@ residues are selected by
   
   index = index_ca & index_resid;  % Boolean AND
 
-Obtained logical indexings are directly used for other MDToolbox
-function, such as I/O funcitons:
+Obtained logical indexings can be used with other MDToolbox
+function, such as I/O funcitons. The following reads the trajectory of 
+subset atoms specified by the logical index ``index``:
 ::
 
   trj = readdcd('run.dcd', index);
 
 As an alternative, users can directly choose subset from coordinate or
 trajectory variable. This can be done by using a utility function of
-MDToolbox, ``to3()``. ``to3()`` convert given logical indexing to
+MDToolbox ``to3()``. ``to3()`` converts given logical indexing to
 XYZ-type logical indexing. For example, the following code extracts
 the subset trajectory as same as above.
 ::
