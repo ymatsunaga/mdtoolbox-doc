@@ -2,51 +2,12 @@
 .. highlight:: matlab
 
 Getting Started
-==================================
+=======================================
 
-Data structures for coordinate and trajectory
----------------------------------------------
+Input/Output for trajectory files
+---------------------------------------
 
-MDToolbox assumes a simple vector/matrix form for coordinate/trajectory.
-
-Coordinate variable is a row vector whose elements are the XYZ coordinates of atoms in order
-::
-  
-  [x(1) y(1) z(1) x(2) y(2) z(2) .. x(natom) y(natom) z(natom)]
-
-Thus, for example, translation in the x-axis by 3.0 Angstrom is coded as follows:
-::
-  
-  crd(1:3:end) = crd(1:3:end) + 3.0;
-
-Likewise, the y-coordinate of geometrical center is calculated by
-::
-  
-  center_y = mean(crd(2:3:end));
-
-Trajectory variable is a matrix whose column vectors consist of
-coordinate variables. The rows represent snapshots of coordinate. 
-For simulation data, the snapshots may correspond to time-steps. 
-
-Thus, for example, translation in the x-axis throughout all snapshots is coded as follows: 
-::
-  
-  trj(:, 1:3:end) = trj(:, 1:3:end) + 3.0;
-
-The coordinate at the 10th snapshot is extracted by
-::
-  
-  crd = trj(10, :);
-
-Average coordinate over all snapshots (without fitting) is obtained by
-::
-  
-  crd = mean(trj);
-
-Input/Output for coordinate and trajectory
-------------------------------------------
-
-Typical usages for I/O functions are summarized here.
+Typical usages for I/O functions of trajectory files are summarized here.
 
 PDB
 ^^^
@@ -88,8 +49,52 @@ DCD file
   % after some calculations
   writenetcdf('run_edit.nc', trj);
 
+Input/Output for topology files
+---------------------------------------
+
+under construction
+
+Coordinate and trajectory variables
+---------------------------------------
+
+MDToolbox assumes a simple vector/matrix form for coordinate/trajectory.
+
+Coordinate variable is a row vector whose elements are the XYZ coordinates of atoms in order
+::
+  
+  [x(1) y(1) z(1) x(2) y(2) z(2) .. x(natom) y(natom) z(natom)]
+
+Thus, for example, translation in the x-axis by 3.0 Angstrom is coded as follows:
+::
+  
+  crd(1:3:end) = crd(1:3:end) + 3.0;
+
+Likewise, the y-coordinate of geometrical center is calculated by
+::
+  
+  center_y = mean(crd(2:3:end));
+
+Trajectory variable is a matrix whose column vectors consist of
+coordinate variables. The rows represent snapshots of coordinate. 
+For simulation data, the snapshots may correspond to time-steps. 
+
+Thus, for example, translation in the x-axis throughout all snapshots is coded as follows: 
+::
+  
+  trj(:, 1:3:end) = trj(:, 1:3:end) + 3.0;
+
+The coordinate at the 10th snapshot is extracted by
+::
+  
+  crd = trj(10, :);
+
+Average coordinate over all snapshots (without fitting) is obtained by
+::
+  
+  crd = mean(trj);
+
 Atom selection
-----------------------------------
+---------------------------------------
 
 MDToolbox uses `logical indexing
 <http://blogs.mathworks.com/loren/2013/02/20/logical-indexing-multiple-conditions/>`_
@@ -210,9 +215,4 @@ The following explains how ``to3()`` works by using simple indexing:
   ans =
   
        1     1     1     0     0     0     1     1     1
-
-Figures
-----------------------------------
-
-Text here
 
