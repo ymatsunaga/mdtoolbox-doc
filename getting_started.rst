@@ -25,7 +25,7 @@ Likewise, the y-coordinate of geometrical center is calculated by
   center_y = mean(crd(2:3:end));
 
 Trajectory variable is a matrix whose row vectors consist of
-coordinate variables. The rows represent snapshots of coordinate. 
+coordinate variables. The rows represent snapshots in the trajectory. 
 For simulation data, the snapshots may correspond to time-steps. 
 
 Thus, for example, translation in the x-axis throughout all snapshots is coded as follows: 
@@ -49,7 +49,7 @@ Atom selection
 MDToolbox uses `logical indexing
 <http://blogs.mathworks.com/loren/2013/02/20/logical-indexing-multiple-conditions/>`_
 for atom selection. Logical indexing is a vector or matrix whose
-elements consists of logical variables, i.e., true(1) or false(0). It
+elements consist of logical variables, i.e., true(1) and false(0). It
 is useful for selecting subset of vector/matrix that matches a given
 condition in MATLAB.
 
@@ -99,7 +99,7 @@ elements are greater than 1, and also smaller than 3:
   
        2
 
-MDToolbox has three types of atom-selection functions,
+MDToolbox has three types of atom-selection functions; 
 ``selectname()``, ``selectid()``, and ``selectrange()``. All of them
 returns logical indexing for use with other MDToolbox functions 
 or selecting subset of coordinate or trajectory variable.
