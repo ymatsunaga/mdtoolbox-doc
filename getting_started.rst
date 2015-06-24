@@ -28,15 +28,15 @@ Trajectory variable is a matrix whose row vectors consist of
 coordinate variables. The rows represent snapshots in the trajectory. 
 For simulation data, the snapshots may correspond to time-steps. 
 
-Thus, for example, translation in the x-axis throughout all snapshots is coded as follows: 
-::
-  
-  trj(:, 1:3:end) = trj(:, 1:3:end) + 3.0;
-
-The coordinate at the 10th snapshot is extracted by
+Thus, for example, The coordinate at the 10th snapshot is extracted by
 ::
   
   crd = trj(10, :);
+
+Translation in the x-axis throughout all snapshots is coded as
+::
+  
+  trj(:, 1:3:end) = trj(:, 1:3:end) + 3.0;
 
 Average coordinate over all snapshots (without fitting) is obtained by
 ::
