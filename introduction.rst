@@ -154,12 +154,12 @@ readdx                     read dx (opendx) format file
 writedx                    write dx (opendx) format file
 ========================== ==================================================================================================
 
-Geometry calculations (Distance, angles, dihedrals, fitting of structures, etc)
+Geometry calculations (fitting of structures, distance, angles, dihedrals, etc)
 
 ========================== ==================================================================================================
 name                       description
 ========================== ==================================================================================================
-superimpose                least-squares fitting of structures by Kabsch's method
+superimpose                least-squares fitting of structures
 meanstructure              calculate average structure by iterative superimposing
 decenter                   remove the center of mass from coordinates or velocities
 orient                     orient molecule using the principal axes of inertia
