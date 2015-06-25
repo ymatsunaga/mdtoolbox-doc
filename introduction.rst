@@ -85,9 +85,9 @@ List of functions
 ----------------------------------
 
 Representative functions of MDToolbox are summarized in the tables
-below. For deital of each function, use ``help`` command in
-MATLAB. For example, usage of ``readpdb()`` can be obtained as
-follows:
+below. For detail of each function, use ``help`` command in
+MATLAB. For example, usage of ``readdcd()`` function can be obtained
+as follows:
 ::
   
   >> help readpdb
