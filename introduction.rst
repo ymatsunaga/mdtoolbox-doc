@@ -85,7 +85,49 @@ List of functions
 ----------------------------------
 
 Representative functions of MDToolbox are summarized in the tables
-below. 
+below. For deital of each function, use ``help`` command in
+MATLAB. For example, usage of ``readpdb()`` can be obtained as
+follows:
+::
+  
+  >> help readpdb
+  readdcd
+  read xplor or charmm (namd) format dcd file
+  
+   % Syntax
+   # trj = readdcd(filename);
+   # trj = readdcd(filename, index_atom);
+   # [trj, box] = readdcd(filename, index_atom);
+   # [trj, box, header] = readdcd(filename, index_atom);
+   # [trj, ~, header] = readdcd(filename, index_atom);
+  
+   % Description
+    The XYZ coordinates of atoms are read into 'trj' variable
+    which has 'nstep' rows and '3*natom' columns.
+    Each row of 'trj' has the XYZ coordinates of atoms in order
+    [x(1) y(1) z(1) x(2) y(2) z(2) ... x(natom) y(natom) z(natom)].
+  
+    * filename   - input dcd trajectory filename
+    * index_atom - atom index or logical index specifying atoms to be read
+    * trj        - trajectory [nstep x natom3 double]
+    * box        - box size [nstep x 3 double]
+    * header     - structure variable, which has header information
+                   [structure]
+  
+   % Example
+   # trj = readdcd('ak.dcd');
+  
+   % See also
+    writedcd
+  
+   % References for dcd format
+    MolFile Plugin http://www.ks.uiuc.edu/Research/vmd/plugins/molfile/dcdplugin.html
+    CafeMol Manual http://www.cafemol.org/doc.php
+    EGO_VIII Manual http://www.lrz.de/~heller/ego/manual/node93.html
+  
+   % TODO
+    try-catch
+
 
 Inuput/Output
 
