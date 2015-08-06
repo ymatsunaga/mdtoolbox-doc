@@ -4,6 +4,84 @@
 Getting Started
 =======================================
 
+Input/Output
+---------------------------------------
+
+Typical usages of I/O functions for MD files are summarized here.
+
+PDB
+^^^
+
+PDB file
+::
+  
+  pdb = readpdb('protein.pdb'); % pdb is a structure variable containg ATOM records
+  [pdb, crd] = readpdb('protein.pdb'); % if you want to extract the coordinate
+  % after some calculations
+  writepdb('protein_edit.pdb', pdb);
+  writepdb('protein_edit.pdb', pdb, crd); % if you want to replace coordinate with crd
+
+AMBER files
+^^^^^^^^^^^
+
+AMBER log
+::
+  
+  ene = readamberout('amber.out'); % ene is a structure variable containing energy terms
+
+AMBER parameter/topology file
+::
+  
+  prmtop = readprmtop('run.prmtop'); % prmtop is a structure variable containing topology information
+
+AMBER trajectory file
+::
+  
+  natom = 5192; % the number of atoms is required for reading AMBER trajectory  
+  trj = readmdcrd(natom, 'run.trj'); % trajectory file without box size
+  trj = readmdcrdbox(natom, 'run.trj'); % trajectory file with box size
+  % after some calculations
+  writemdcrd('run_edit.trj', trj);
+
+AMBER NetCDF trajectory file
+::
+  
+  trj = readnetcdf('run.nc');
+  % after some calculations
+  writenetcdf('run_edit.nc', trj);
+
+CHARMM/NAMD files
+^^^^^^^^^^^^^^^^^
+
+NAMD log
+::
+
+  ene = readnamdout('namd.out'); % ene is a structure variable containing energy terms
+
+PSF file
+::
+  
+  psf = readpsf('run.psf'); % psf is a structure variable containing energy terms
+
+DCD file
+::
+  
+  trj = readdcd('run.dcd');
+  % after some calculations
+  writedcd('run_edit.dcd', trj);
+
+GROMACS files
+^^^^^^^^^^^^^
+
+GRO file
+::
+  
+  gro = readgro('run.gro'); % gro is a structure variable containg ATOM records
+  % after some calculations
+  writegro('run_edit.gro', gro);
+
+Support of TRR and XTC files is on-going.
+
 Coordinate and trajectory variables
 ---------------------------------------
 
@@ -165,82 +243,4 @@ The following explains how ``to3()`` works by using simple indexing:
   ans =
   
        1     1     1     0     0     0     1     1     1
-
-Input/Output usages
----------------------------------------
-
-Typical usages of I/O functions for MD files are summarized here.
-
-PDB
-^^^
-
-PDB file
-::
-  
-  pdb = readpdb('protein.pdb'); % pdb is a structure variable containg ATOM records
-  [pdb, crd] = readpdb('protein.pdb'); % if you want to extract the coordinate
-  % after some calculations
-  writepdb('protein_edit.pdb', pdb);
-  writepdb('protein_edit.pdb', pdb, crd); % if you want to replace coordinate with crd
-
-AMBER files
-^^^^^^^^^^^
-
-AMBER log
-::
-  
-  ene = readamberout('amber.out'); % ene is a structure variable containing energy terms
-
-AMBER parameter/topology file
-::
-  
-  prmtop = readprmtop('run.prmtop'); % prmtop is a structure variable containing topology information
-
-AMBER trajectory file
-::
-  
-  natom = 5192; % the number of atoms is required for reading AMBER trajectory  
-  trj = readmdcrd(natom, 'run.trj'); % trajectory file without box size
-  trj = readmdcrdbox(natom, 'run.trj'); % trajectory file with box size
-  % after some calculations
-  writemdcrd('run_edit.trj', trj);
-
-AMBER NetCDF trajectory file
-::
-  
-  trj = readnetcdf('run.nc');
-  % after some calculations
-  writenetcdf('run_edit.nc', trj);
-
-CHARMM/NAMD files
-^^^^^^^^^^^^^^^^^
-
-NAMD log
-::
-
-  ene = readnamdout('namd.out'); % ene is a structure variable containing energy terms
-
-PSF file
-::
-  
-  psf = readpsf('run.psf'); % psf is a structure variable containing energy terms
-
-DCD file
-::
-  
-  trj = readdcd('run.dcd');
-  % after some calculations
-  writedcd('run_edit.dcd', trj);
-
-GROMACS files
-^^^^^^^^^^^^^
-
-GRO file
-::
-  
-  gro = readgro('run.gro'); % gro is a structure variable containg ATOM records
-  % after some calculations
-  writegro('run_edit.gro', gro);
-
-Support of TRR and XTC files is on-going.
 
