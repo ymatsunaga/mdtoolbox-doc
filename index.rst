@@ -24,6 +24,7 @@ Examples
    alat_1D_umbrella_wham
    alat_1D_umbrella_mbar
    alad_ksdensity
+   alad_2D_umbrella_wham
    alad_2D_umbrella_mbar
    anm
 
