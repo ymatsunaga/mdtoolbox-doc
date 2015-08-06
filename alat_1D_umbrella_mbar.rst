@@ -5,7 +5,8 @@
 1D Umbrella Sampling of Tri-Alanine and MBAR
 =======================================================================================
 
-This example is located in ``example/umbrella_alat/mbar/``.
+Files for this example can be downloaded from `here <https://www.dropbox.com/s/jwep4yxwsdv8w87/mdtoolbox_example.tgz?dl=0>`_.
+This example is located in ``mdtoolbox_example/umbrella_alat/mbar/``.
 
 ::
   

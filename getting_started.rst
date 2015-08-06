@@ -135,7 +135,7 @@ residues are selected by
   index = index_ca & index_resid;  % Boolean AND
 
 Obtained logical indexings can be used with other MDToolbox
-function, such as I/O functions. The following reads the trajectory of 
+functions, such as I/O functions. The following reads the trajectory of 
 subset atoms specified by the logical index ``index``:
 ::
 

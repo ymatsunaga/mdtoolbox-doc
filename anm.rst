@@ -5,7 +5,8 @@
 Anisotropic Network Model
 ==============================================================
 
-This example is located in ``example/anm_lys/``.
+Files for this example can be downloaded from `here <https://www.dropbox.com/s/jwep4yxwsdv8w87/mdtoolbox_example.tgz?dl=0>`_.
+This example is located in ``mdtoolbox_example/anm_lys/``.
 
 Normal mode analysis of ANM
 ---------------------------
