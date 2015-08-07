@@ -135,7 +135,7 @@ To use I/O functions for NetCDF files (e.g., AMBER NetCDF trajectory),
 `Octave-netcdf <http://modb.oce.ulg.ac.be/mediawiki/index.php/Octave-netcdf>`_
 package needs to be installed in Octave. 
 
-List of functions
+Summary of functions
 ----------------------------------
 
 Representative functions of MDToolbox are summarized in the tables
