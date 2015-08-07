@@ -7,7 +7,7 @@ Introduction
 What is MDToolbox?
 ----------------------------------
 
-MDToolbox is a MATLAB toolbox for statistical analysis of molecular
+MDToolbox is a MATLAB/Octave toolbox for statistical analysis of molecular
 dynamics (MD) simulation data of biomolecules. It consists of a
 collection of MATLAB functions covering the following types of
 scientific computations: 
@@ -23,7 +23,15 @@ scientific computations:
 MDToolbox is developed on `GitHub <https://github.com/ymatsunaga/mdtoolbox/>`_,
 and freely available under the BSD license. 
 
-Download and Installation
+Requirements
+----------------------------------
+
+MDToolbox is developed and verified on MATLAB R2013a or later versions.
+
+Also, we are testing MDToolbox functions on GNU Octave version 3.8.2. As far as we have checked, most of functions should work on Octave version 3.8.2 or later. 
+
+
+Download
 ----------------------------------
 
 `Zip arichive <https://github.com/ymatsunaga/mdtoolbox/zipball/master>`_ or `tarball
@@ -33,6 +41,9 @@ or the repository can be directly cloned from GitHub by using git,
 ::
 
  $ git clone https://github.com/ymatsunaga/mdtoolbox.git
+
+Installation for MATLAB
+----------------------------------
 
 For personal installation, the personal startup file may be found at 
 ``~/matlab/startup.m``.  If it does not exist, create one.  
@@ -52,9 +63,8 @@ path (root permission is required to save the path),
    :align: center
 
 In addition to the original m-files, MEX-files are prepared for core
-functions to accelerate the performance (here, MEX-file means
-a C-function called from the MATLAB command line). **We strongly
-recommend to use these MEX-files for reasonable performance**. 
+functions to accelerate the performance.
+**We strongly recommend to use these MEX-files for reasonable performance**. 
 To use MEX-files, the user needs to compile the files in advance.
 For the compilation, a prepared ``make.m`` script can be used as follows:
 ::
@@ -80,6 +90,50 @@ should be set from the shell prompt as follows:
   $ export OMP_NUM_THREADS=8
   # for csh/tcsh
   $ setenv OMP_NUM_THREADS 8
+
+Installation for Octave
+----------------------------------
+
+For personal installation, the personal startup file may be found at 
+``~/octaverc``.  If it does not exist, create one.  
+Add the following line to ``~/octaverc`` with full path to the
+directory of MDToolbox m-files, 
+::
+ 
+ addpath('/path/to/mdtoolbox/mdtoolbox/')
+
+In addition to the original m-files, MEX-files are prepared for core
+functions to accelerate the performance.
+**We strongly recommend to use these MEX-files for reasonable performance**. 
+To use MEX-files, the user needs to compile the files in advance.
+For the compilation, a prepared ``make.m`` script can be used as follows:
+::
+  
+  >> cd /path/to/mdtoolbox/
+  >> make
+
+Warnings during the compilation can be safely ignored.
+
+On Linux platforms, OpenMP option can be enabled further performance
+by parallel computation, 
+::
+  
+  >> make('openmp')
+
+For parallel run, make sure to set your environment
+variable (``OMP_NUM_THREADS``) before starting up Octave. For example,
+if you want to use 8 threads(=CPU cores) parallelization, the variable
+should be set from the shell prompt as follows:
+::
+  
+  # for sh/bash/zsh
+  $ export OMP_NUM_THREADS=8
+  # for csh/tcsh
+  $ setenv OMP_NUM_THREADS 8
+
+To use I/O functions for NetCDF files (e.g., AMBER NetCDF trajectory),
+`Octave-netcdf <http://modb.oce.ulg.ac.be/mediawiki/index.php/Octave-netcdf>`_
+package needs to be installed in Octave. 
 
 List of functions
 ----------------------------------

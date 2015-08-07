@@ -7,7 +7,7 @@ Getting Started
 Input/Output
 ---------------------------------------
 
-Typical usages of I/O functions for MD files are summarized here.
+Typical usages of I/O functions for MD files are follows.
 
 PDB
 ^^^
@@ -219,7 +219,7 @@ subset atoms specified by the logical index ``index``:
 
   trj = readdcd('run.dcd', index);
 
-As an alternative, users can directly choose subset from coordinate or
+As an alternative way, users can directly choose subset from coordinate or
 trajectory variable. This can be done by using a utility function of
 MDToolbox ``to3()``. ``to3()`` converts given logical indexing to
 XYZ-type logical indexing. For example, the following code extracts
