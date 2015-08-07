@@ -132,8 +132,8 @@ should be set from the shell prompt as follows:
   $ setenv OMP_NUM_THREADS 8
 
 To use I/O functions for NetCDF files (e.g., AMBER NetCDF trajectory),
-`Octave-netcdf <http://modb.oce.ulg.ac.be/mediawiki/index.php/Octave-netcdf>`_
-package needs to be installed in Octave. 
+`Octave-netcdf package <http://modb.oce.ulg.ac.be/mediawiki/index.php/Octave-netcdf>`_
+needs to be installed in Octave. 
 
 Summary of functions
 ----------------------------------
