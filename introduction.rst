@@ -26,9 +26,9 @@ and freely available under the BSD license.
 Requirements
 ----------------------------------
 
-MDToolbox is developed and verified on MATLAB R2013a or later versions.
+MDToolbox is developed and verified on MATLAB R2013a and later versions.
 
-Also, we are testing MDToolbox functions on GNU Octave version 3.8.2. As far as we have checked, most of functions should work on Octave version 3.8.2 or later. 
+Also, we are testing MDToolbox functions on GNU Octave version 3.8.2. As far as we have checked, most of functions should work on Octave version 3.8.2 or laters. 
 
 
 Download
