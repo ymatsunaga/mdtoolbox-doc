@@ -9,7 +9,7 @@ What is MDToolbox?
 
 MDToolbox is a MATLAB/Octave toolbox for statistical analysis of molecular
 dynamics (MD) simulation data of biomolecules. It consists of a
-collection of MATLAB functions covering the following types of
+collection of MATLAB/Octave functions covering the following types of
 scientific computations: 
 
 * I/O for trajectory, coordinate, and topology files used for MD simulation
@@ -62,7 +62,7 @@ path (root permission is required to save the path),
    :alt: introduction01
    :align: center
 
-In addition to the original m-files, MEX-files are prepared for core
+In addition to the m-files, MEX-files are prepared for core
 functions to accelerate the performance.
 **We strongly recommend to use these MEX-files for reasonable performance**. 
 To use MEX-files, the user needs to compile the files in advance.
@@ -102,7 +102,7 @@ directory of MDToolbox m-files,
  
  addpath('/path/to/mdtoolbox/mdtoolbox/')
 
-In addition to the original m-files, MEX-files are prepared for core
+In addition to the m-files, MEX-files are prepared for core
 functions to accelerate the performance.
 **We strongly recommend to use these MEX-files for reasonable performance**. 
 To use MEX-files, the user needs to compile the files in advance.
