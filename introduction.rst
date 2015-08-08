@@ -73,15 +73,20 @@ directory of MDToolbox m-files,
  
  addpath('/path/to/mdtoolbox/mdtoolbox/')
 
+To use I/O functions for NetCDF files (e.g., AMBER NetCDF trajectory),
+`Octave-netcdf package <http://modb.oce.ulg.ac.be/mediawiki/index.php/Octave-netcdf>`_
+needs to be installed in Octave. 
+
 Compiling MEX-files and multithreading
 --------------------------------------
 
 In addition to the m-files,
 `MEX-files <http://www.mathworks.com/help/matlab/matlab_external/introducing-mex-files.html>`_
 are prepared for core functions to accelerate the performance.
-**We strongly recommend to use these MEX-files for reasonable performance**. 
+**We strongly recommend to use these MEX-files for reasonable
+performance in MATLAB/Octave**. 
 To use MEX-files, the user needs to compile the files in advance.
-For the compilation, a prepared ``make.m`` script can be used as follows:
+For the compilation, use ``make.m`` script in MATLAB/Octave:
 ::
   
   >> cd /path/to/mdtoolbox/
@@ -105,10 +110,6 @@ the variable should be set from the shell prompt as follows:
   $ export OMP_NUM_THREADS=8
   # for csh/tcsh
   $ setenv OMP_NUM_THREADS 8
-
-To use I/O functions for NetCDF files (e.g., AMBER NetCDF trajectory),
-`Octave-netcdf package <http://modb.oce.ulg.ac.be/mediawiki/index.php/Octave-netcdf>`_
-needs to be installed in Octave. 
 
 Summary of functions
 --------------------------------------
