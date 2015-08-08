@@ -74,7 +74,7 @@ directory of MDToolbox m-files,
  addpath('/path/to/mdtoolbox/mdtoolbox/')
 
 To use I/O functions for NetCDF files (e.g., AMBER NetCDF trajectory),
-`Octave-netcdf package <http://modb.oce.ulg.ac.be/mediawiki/index.php/Octave-netcdf>`_
+`netcdf package <http://modb.oce.ulg.ac.be/mediawiki/index.php/Octave-netcdf>`_
 needs to be installed in Octave. 
 
 Compiling MEX-files and multithreading
