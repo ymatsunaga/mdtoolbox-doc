@@ -28,7 +28,7 @@ Requirements
 
 MDToolbox is developed and tested on MATLAB R2013a and later versions.
 
-Also, we are testing on GNU Octave version 3.8.2. As far as we have checked, most of functions should work on Octave version 3.8.2 or laters. 
+We also are testing the toolbox on GNU Octave version 3.8.2. As far as we have checked, most of functions should work on Octave version 3.8.2 or laters. 
 
 
 Download
@@ -109,10 +109,7 @@ the variable should be set from the shell prompt as follows:
   # for sh/bash/zsh
   $ export OMP_NUM_THREADS=8
   # for csh/tcsh
-  $ setenv OMP_NUM_THREADS 8
-
-Summary of functions
---------------------------------------
+  $ setenv OMP_NUM_TH--------------------------------------------------------------------
 
 Representative functions of MDToolbox are summarized in the tables
 below. For detail of each function, use ``help`` command in
@@ -206,8 +203,10 @@ Statistics (WHAM, MBAR, clustering, etc)
 name                       description
 ========================== ==================================================================================================
 wham                       Weighted Histogram Analysis method (WHAM)
+wham2d                     2D WHAM
 ptwham                     Parallel tempering WHAM (PTWHAM)
 mbar                       multi-state Bennett Acceptrance Ratio Method (MBAR)
+mbarpmf                    evaluate PMF from the result of MBAR
 calcpmf                    calculate 1D potential of mean force from the scattered 1D-data (using kernel density estimator)
 calcpmf2d                  calculate 2D potential of mean force from the scattered 2D-data (using kernel density estimator)
 calcpca                    peform principal component analysis (PCA)
