@@ -22,6 +22,7 @@ Examples
    :maxdepth: 2
    
    alat_1D_umbrella_wham
+   alat_1D_umbrella_dtram
    alat_1D_umbrella_mbar
    alad_ksdensity
    alad_2D_umbrella_wham

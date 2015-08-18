@@ -16,29 +16,29 @@ This example is located in ``mdtoolbox_example/umbrella_alat/mbar/``.
   %% constants
   C = getconstants();
   KBT = C.KB*300; % KB is the Boltzmann constant in kcal/(mol K)
-  BETA = 1./KBT;
   
   %% define umbrella window centers
   umbrella_center = 0:3:180;
-  numbrella = numel(umbrella_center);
+  K = numel(umbrella_center);
   
   %% define function handles of bias energy for umbrella windows
-  for i = 1:numbrella
-    k = 200 * (pi/180)^2; % conversion of the unit from kcal/mol/rad^2 to kcal/mol/deg^2
-    fhandle_k{i} = @(x) BETA*k*(periodic(x, umbrella_center(i))).^2;
+  for k = 1:K
+    spring_constant = 200 * (pi/180)^2; % conversion of the unit from kcal/mol/rad^2 to kcal/mol/deg^2
+    fhandle_k{k} = @(x) (spring_constant/KBT)*(minimum_image(x, umbrella_center(k))).^2;
   end
   
   %% read dihedral angle data
-  for i = 1:numbrella
-    filename = sprintf('../3_prod/run_%d.dat', umbrella_center(i));
+  data_k = {};
+  for k = 1:K
+    filename = sprintf('../3_prod/run_%d.dat', umbrella_center(k));
     x = load(filename);
-    dihedral_k{i} = x(:, 2);
+    data_k{k} = x(:, 2);
   end
   
-  %% evaluate u_kl: reduced potential energy of umbrella simulation k evaluated at umbrella l
-  for k = 1:numbrella
-    for l = 1:numbrella
-      u_kl{k, l} = fhandle_k{l}(dihedral_k{k});
+  %% evaluate u_kl: reduced bias-factor or potential energy of umbrella simulation data k evaluated by umbrella l
+  for k = 1:K
+    for l = 1:K
+      u_kl{k, l} = fhandle_k{l}(data_k{k});
     end
   end
   
@@ -47,9 +47,11 @@ This example is located in ``mdtoolbox_example/umbrella_alat/mbar/``.
   f_k = mbar(u_kl);
   
   %% PMF
-  edge = linspace(-1, 181, 81);
-  for i = 1:numbrella
-    [bin_k{i}, center] = assign1dbins(dihedral_k{i}, edge);
+  M = 80; % number of bins
+  edge = linspace(-1, 181, M+1);
+  bin_center = 0.5 * (edge(2:end) + edge(1:(end-1)));
+  for k = 1:K
+    bin_k{k} = assign1dbin(data_k{k}, edge);
   end
   pmf = mbarpmf(u_kl, bin_k, f_k);
   pmf = KBT*pmf;
@@ -57,7 +59,7 @@ This example is located in ``mdtoolbox_example/umbrella_alat/mbar/``.
   
   %% plot the PMF
   hold off
-  plot(center, pmf, 'k-');
+  plot(bin_center, pmf, 'k-');
   formatplot
   xlabel('angle [degree]', 'fontsize', 20);
   ylabel('PMF [kcal/mol]', 'fontsize', 20);
@@ -66,21 +68,16 @@ This example is located in ``mdtoolbox_example/umbrella_alat/mbar/``.
   hold off
   
   %% save results
-  save -v7.3 analyze.mat;
+  save analyze.mat;
 
 ::
   
-  function dx = periodic(x, center)
-  %
-  %
-  
+  function dx = minimum_image(center, x)
   dx = x - center;
   dx = dx - round(dx./360)*360;
-  
 
 .. image:: ./images/mbar_pmf.png
    :width: 90 %
    :alt: mbar_pmf
    :align: center
-
 
