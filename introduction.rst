@@ -7,10 +7,10 @@ Introduction
 What is MDToolbox?
 --------------------------------------
 
-MDToolbox is a MATLAB/Octave toolbox for statistical analysis of
-molecular dynamics (MD) simulation data of biomolecules. It consists
-of a collection of functions covering the following types of
-scientific computations: 
+`MDToolbox <https://github.com/ymatsunaga/mdtoolbox/>`_ is a
+MATLAB/Octave toolbox for statistical analysis of molecular dynamics
+(MD) simulation data of biomolecules. It consists of a collection of
+functions covering the following types of scientific computations: 
 
 * I/O for trajectory, coordinate, and topology files used for MD simulation
 * Least-squares fitting of structures
@@ -195,6 +195,7 @@ calcbond                   calculate distance from the Cartesian coordinates of 
 calcangle                  calculate angle from the Cartesian coordinates of three atoms
 calcdihedral               calculate dihedral angle from the Cartesian coordinates of four atoms
 calcpairlist               make a pairlist by searching pairs within a cutoff distance
+calcqscore                 calculate Q-score (fraction of native contacts) from given heady atom coordinates
 ========================== ==================================================================================================
 
 Statistics (WHAM, MBAR, clustering, etc)
@@ -203,7 +204,6 @@ Statistics (WHAM, MBAR, clustering, etc)
 name                       description
 ========================== ==================================================================================================
 wham                       Weighted Histogram Analysis method (WHAM)
-wham2d                     2D WHAM
 ptwham                     Parallel tempering WHAM (PTWHAM)
 mbar                       multi-state Bennett Acceptrance Ratio Method (MBAR)
 mbarpmf                    evaluate PMF from the result of MBAR
@@ -211,9 +211,9 @@ calcpmf                    calculate 1D potential of mean force from the scatter
 calcpmf2d                  calculate 2D potential of mean force from the scattered 2D-data (using kernel density estimator)
 calcpca                    peform principal component analysis (PCA)
 calctica                   perform time-structure based Independent Component Analysis (tICA)
-clusteringbykcenter        clustering by K-center
-clusteringbykmeans         clustering by K-means
-calctransitionmatrix       calculate transition probability matrix
+clusterkcenters            clustering by K-centers
+clusterhybrid              Hybrid clustering by using K-centers and K-medoids
+clusterkmeans              clustering by K-means
 ========================== ==================================================================================================
 
 Anisotropic Network Model
