@@ -127,7 +127,7 @@ Atom selection
 MDToolbox uses `logical indexing
 <http://blogs.mathworks.com/loren/2013/02/20/logical-indexing-multiple-conditions/>`_
 for atom selection. Logical indexing is a vector or matrix whose
-elements consist of logical variables, i.e., true and false. Logical indexing 
+elements consist of logical variables, i.e., true(==1) and false(==0). Logical indexing 
 is useful for selecting subset of vector/matrix that matches a given
 condition in MATLAB.
 
