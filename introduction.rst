@@ -116,7 +116,7 @@ Docker image for MDToolbox
 
 A `docker <https://www.docker.com>`_ image for MDToolbox is avaiable
 `here <https://hub.docker.com/r/ymatsunaga/octave/>`_. 
-In this Docker image, you can use Octave already configured for use
+In this docker image, you can use Octave already configured for use
 with MDToolbox (downloading MDtoolbox, path setup, MEX file compiling,
 etc are already completed). 
 
