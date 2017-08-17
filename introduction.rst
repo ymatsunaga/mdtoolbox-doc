@@ -125,7 +125,7 @@ By just running a docker command, you can immediately use MDToolbox (without GUI
 
  $ docker run -it --rm -v $(pwd):/home/jovyan/work ymatsunaga/octave octave
 
-Or you can use Octave + MDToolbox with Jupyter notebook (with GUI),
+Or you can use Octave + MDToolbox within Jupyter notebook (with GUI),
 ::
 
  $ docker run --rm -p 8888:8888 -v $(pwd):/home/jovyan/work ymatsunaga/octave
