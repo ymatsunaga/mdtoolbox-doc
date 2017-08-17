@@ -118,10 +118,21 @@ If you are familiar with `Docker <https://www.docker.com>`_,
 you can use a docker image for MDToolbox is avaiable `here <https://hub.docker.com/r/ymatsunaga/octave/>`_.
 In this Docker image, you can use Octave which is already configured for use with MDToolbox (path setup, MEX file compiling, etc are already completed).
 
-By just running a docker command, you can immediately use MDToolbox,
+By just running a docker command, you can immediately use MDToolbox (without GUI),
 ::
-  
-  >> docker run -it --rm -v $(pwd):/home/jovyan/work ymatsunaga/octave octave
+
+ $ docker run -it --rm -v $(pwd):/home/jovyan/work ymatsunaga/octave octave
+
+Or, you can use Octave + MDToolbox with Jupyter notebook (with GUI),
+::
+
+ $ docker run --rm -p 8888:8888 -v $(pwd):/home/jovyan/work ymatsunaga/octave
+ then, access to the Jupyter notebook via browser
+
+.. image:: ./images/jupyter.png
+   :width: 90 %
+   :alt: introduction01
+   :align: center
 
 For details of the usage, please see `our docker image site <https://hub.docker.com/r/ymatsunaga/octave/>`_.
 
