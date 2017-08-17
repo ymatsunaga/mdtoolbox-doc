@@ -114,9 +114,11 @@ the variable should be set from the shell prompt as follows:
 Docker image for MDToolbox
 --------------------------------------
 
-If you are familiar with `Docker <https://www.docker.com>`_,
-you can use a docker image for MDToolbox is avaiable `here <https://hub.docker.com/r/ymatsunaga/octave/>`_.
-In this Docker image, you can use Octave which is already configured for use with MDToolbox (path setup, MEX file compiling, etc are already completed).
+A `docker <https://www.docker.com>`_ image for MDToolbox is avaiable
+`here <https://hub.docker.com/r/ymatsunaga/octave/>`_. 
+In this Docker image, you can use Octave already configured for use
+with MDToolbox (downloading MDtoolbox, path setup, MEX file compiling,
+etc are already completed). 
 
 By just running a docker command, you can immediately use MDToolbox (without GUI),
 ::
