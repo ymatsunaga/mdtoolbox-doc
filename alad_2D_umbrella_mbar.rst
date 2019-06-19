@@ -8,7 +8,7 @@
 Files for this example can be downloaded from `here <https://drive.google.com/file/d/1l_JjJ8c4FS3sTgGD2Wj76YImHOuT071_/view?usp=sharing>`_.
 This example is located in ``mdtoolbox_example/umbrella_alad/mbar/``.
 
-.. code-block:: matlab
+::
   
   % this routine calculates free energies of umbrella systems by using MBAR
   
