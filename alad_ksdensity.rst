@@ -5,7 +5,7 @@
 Conventional MD of Alanine-Dipeptide and 2D PMF surface
 ===========================================================================================
 
-Files for this example can be downloaded from `here <https://www.dropbox.com/s/5fu2t0ftlr8z3j6/mdtoolbox_example.tgz?dl=0>`_.
+Files for this example can be downloaded from `here <https://drive.google.com/file/d/1l_JjJ8c4FS3sTgGD2Wj76YImHOuT071_/view?usp=sharing>`_.
 This example is located in ``mdtoolbox_example/md_alad/pmf/``.
 
 We calculate the surface of potential of mean force (PMF) in a
